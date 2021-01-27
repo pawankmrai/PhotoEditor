@@ -5,7 +5,7 @@
 
 #### Installation and Runnig Xcode Project
  1.  Installation
-	- bash  <(curl -Ls https://install.tuist.io)
+	- `bash  <(curl -Ls https://install.tuist.io)`
 2. Generation Xcode project
 	-  Open PhotoEditor directory in terminal
 	-  `tuist generate`
