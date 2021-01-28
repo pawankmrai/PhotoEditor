@@ -12,7 +12,7 @@ let project = Project(name: "PhotoEditor",
                                                       devices: [.iphone, .ipad]),
                                infoPlist: "Config/PhotoEditor.plist",
                                sources: ["Sources/PhotoEditor/**/*.swift"],
-                               resources: ["Sources/PhotoEditor/**"],
+                               resources: ["Sources/PhotoEditor/**/*.storyboard"],
                                dependencies: [
                                 .target(name: "PhotoEditorKit")
                                ]),
@@ -24,6 +24,7 @@ let project = Project(name: "PhotoEditor",
                                                       devices: [.iphone, .ipad]),
                                infoPlist: "Config/PhotoEditorKit.plist",
                                sources: ["Sources/PhotoEditorKit/**/*.swift"],
-                               resources: ["Sources/PhotoEditorKit/**"],
+                               resources: ["Sources/PhotoEditorKit/**/*.storyboard",
+                                           "Sources/PhotoEditorKit/**/*.xcassets",],
                                dependencies: [])
                       ])

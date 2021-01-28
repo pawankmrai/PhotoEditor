@@ -2,15 +2,15 @@ import UIKit
 
 public class BaseEditorViewController: UIViewController {
     // MARK: Private
-    private var image: UIImage!
+    internal private(set) var image: UIImage!
     private var currentControlsViewController: UIViewController?
     
     // MARK: IBOutlets
-    @IBOutlet private weak var imageView: UIImageView!
-    @IBOutlet private weak var imagePreviewView: UIView!
-    @IBOutlet private weak var editPhotoButton: UIButton!
-    @IBOutlet private weak var editTextButton: UIButton!
-    @IBOutlet private weak var controlsView: UIView!
+    @IBOutlet var imageView: UIImageView!
+    @IBOutlet private var imagePreviewView: UIView!
+    @IBOutlet private var editPhotoButton: UIButton!
+    @IBOutlet private var editTextButton: UIButton!
+    @IBOutlet private var controlsView: UIView!
     
     // MARK: Public
     public static func instance(with image: UIImage) -> BaseEditorViewController {
@@ -37,6 +37,10 @@ public class BaseEditorViewController: UIViewController {
         editorAction(editPhotoButton)
     }
     
+    @IBAction func unwind( _ seg: UIStoryboardSegue) {
+        performSegue(withIdentifier: "Embed Photo Editor", sender: self)
+    }
+    
     public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //
         if let controlsSegue = segue as? ControlsSegue {
@@ -49,6 +53,15 @@ public class BaseEditorViewController: UIViewController {
         if segue.identifier == "Embed Text Editor" {
             let textEditorController = segue.destination as? TextEditorViewController
             textEditorController?.editorDelegate = self
+        }
+        if segue.identifier == "Embed Photo Editor" {
+            let photoEditorController = segue.destination as? PhotoEditorViewController
+            photoEditorController?.editorDelegate = self
+        }
+        //
+        if segue.identifier == "Embed Photo Exposure" {
+            let exposureViewController = segue.destination as? ExposureViewController
+            exposureViewController?.exposureDelegate = self
         }
     }
     
@@ -90,6 +103,8 @@ extension BaseEditorViewController: EditorDelegate {
         //
         if control == .background {
             performSegue(withIdentifier: "Embed Background", sender: self)
+        } else if control == .exposure {
+            performSegue(withIdentifier: "Embed Photo Exposure", sender: self)
         }
     }
     
