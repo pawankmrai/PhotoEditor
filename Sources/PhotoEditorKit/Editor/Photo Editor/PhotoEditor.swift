@@ -10,7 +10,11 @@ class PhotoEditorViewController: UIViewController {
                                        Control(type: .rotate),
                                        Control(type: .exposure),
                                        Control(type: .brightness),
-                                       Control(type: .contrast)]
+									   Control(type: .saturation),
+									   Control(type: .contrast),
+									   Control(type: .sharpness),
+									   Control(type: .vignette),
+									   Control(type: .color)]
     
     // MARK: Public
     public var editorDelegate: EditorDelegate?

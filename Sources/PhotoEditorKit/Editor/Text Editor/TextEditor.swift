@@ -7,7 +7,7 @@ class TextEditorViewController: UIViewController {
     // MARK: Private
     private var controls: [Control] = [Control(type: .background),
                                        Control(type: .font),
-                                       Control(type: .size),
+                                       Control(type: .fonSize),
                                        Control(type: .shadow),
                                        Control(type: .color),
                                        Control(type: .rotate)]

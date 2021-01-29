@@ -6,11 +6,17 @@ public class BaseEditorViewController: UIViewController {
     private var currentControlsViewController: UIViewController?
     
     // MARK: IBOutlets
-    @IBOutlet var imageView: UIImageView!
-    @IBOutlet private var imagePreviewView: UIView!
-    @IBOutlet private var editPhotoButton: UIButton!
-    @IBOutlet private var editTextButton: UIButton!
-    @IBOutlet private var controlsView: UIView!
+    @IBOutlet internal 	var imageView: UIImageView!
+    @IBOutlet private 	var imagePreviewView: UIView!
+	//
+    @IBOutlet private 	var editPhotoButton: UIButton!
+	@IBOutlet private 	var editPhotoThumbView: UIView!
+	//
+	@IBOutlet private 	var editTextButton: UIButton!
+	@IBOutlet private 	var editTextThumbView: UIView!
+	
+	//
+    @IBOutlet private 	var controlsView: UIView!
     
     // MARK: Public
     public static func instance(with image: UIImage) -> BaseEditorViewController {
@@ -38,7 +44,7 @@ public class BaseEditorViewController: UIViewController {
     }
     
     @IBAction func unwind( _ seg: UIStoryboardSegue) {
-        performSegue(withIdentifier: "Embed Photo Editor", sender: self)
+		performSegue(withIdentifier: SegueType.photo.rawValue, sender: self)
     }
     
     public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -50,19 +56,21 @@ public class BaseEditorViewController: UIViewController {
             currentControlsViewController = controlsSegue.destination
         }
         //
-        if segue.identifier == "Embed Text Editor" {
-            let textEditorController = segue.destination as? TextEditorViewController
-            textEditorController?.editorDelegate = self
-        }
-        if segue.identifier == "Embed Photo Editor" {
-            let photoEditorController = segue.destination as? PhotoEditorViewController
+		switch segue.identifier {
+		case SegueType.photo.rawValue:
+			let photoEditorController = segue.destination as? PhotoEditorViewController
             photoEditorController?.editorDelegate = self
-        }
-        //
-        if segue.identifier == "Embed Photo Exposure" {
-            let exposureViewController = segue.destination as? ExposureViewController
-            exposureViewController?.exposureDelegate = self
-        }
+		case SegueType.text.rawValue:
+			let textEditorController = segue.destination as? TextEditorViewController
+            textEditorController?.editorDelegate = self
+		case SegueType.ci.rawValue:
+			let exposureViewController = segue.destination as? CIFilterViewController
+            exposureViewController?.filterUpdateDelegate = self
+			exposureViewController?.controlType = sender as? ControlType
+		default:
+			break
+		}
+		
     }
     
     public override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
@@ -79,9 +87,9 @@ public class BaseEditorViewController: UIViewController {
             var segueIdentifier: String?
             switch sender {
             case editPhotoButton:
-                segueIdentifier = "Embed Photo Editor"
+				segueIdentifier = SegueType.photo.rawValue
             case editTextButton:
-                segueIdentifier = "Embed Text Editor"
+				segueIdentifier = SegueType.text.rawValue
             default:
                 break
             }
@@ -91,6 +99,9 @@ public class BaseEditorViewController: UIViewController {
             }
             //
             //controlsView.isHidden = false
+			//
+			editPhotoThumbView.alpha = sender == editPhotoButton ? 1.0 : 0.0
+			editTextThumbView.alpha = sender == editTextButton ? 1.0 : 0.0
             performSegue(withIdentifier: segueIdentifier!, sender: self)
         }
     }
@@ -101,11 +112,15 @@ extension BaseEditorViewController: EditorDelegate {
     //
     func activate(control: ControlType) {
         //
-        if control == .background {
-            performSegue(withIdentifier: "Embed Background", sender: self)
-        } else if control == .exposure {
-            performSegue(withIdentifier: "Embed Photo Exposure", sender: self)
-        }
+		switch control {
+		case .background:
+			performSegue(withIdentifier: SegueType.background.rawValue, sender: control)
+		case .exposure, .brightness, .contrast, .saturation, .sharpness, .vignette:
+			performSegue(withIdentifier: SegueType.ci.rawValue, sender: control)
+		default:
+			break
+		}
+		
     }
     
 }

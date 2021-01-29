@@ -16,6 +16,7 @@ public enum ControlType {
     case font
     case shadow
     case fade
+	case fonSize
 }
 
 extension ControlType {
@@ -50,6 +51,8 @@ extension ControlType {
             return "Shadow"
         case .fade:
             return "Fade"
+		case .fonSize:
+			return "Font Size"
         }
     }
     

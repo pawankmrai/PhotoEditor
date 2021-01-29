@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DQb-5I-YVE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DQb-5I-YVE">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -44,35 +42,59 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fqq-xE-Wqo">
                                 <rect key="frame" x="0.0" y="518" width="320" height="50"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5SX-rq-895">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="5SX-rq-895">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2PV-oy-Wpd">
-                                                <rect key="frame" x="0.0" y="0.0" width="155" height="50"/>
-                                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
-                                                <state key="normal" title="Edit Photo" image="Edit Photo">
-                                                    <color key="titleColor" white="0.0" alpha="0.69522997360000005" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="editorAction:" destination="DQb-5I-YVE" eventType="touchUpInside" id="eTL-Qc-rdT"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xQj-lD-Lke">
-                                                <rect key="frame" x="165" y="0.0" width="155" height="50"/>
-                                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
-                                                <state key="normal" title="Edit Text" image="Edit Text">
-                                                    <color key="titleColor" white="0.0" alpha="0.69522997360000005" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="editorAction:" destination="DQb-5I-YVE" eventType="touchUpInside" id="TlA-6r-SRC"/>
-                                                </connections>
-                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="MVH-jU-FAb">
+                                                <rect key="frame" x="0.0" y="0.0" width="150" height="50"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2PV-oy-Wpd">
+                                                        <rect key="frame" x="0.0" y="0.0" width="150" height="47"/>
+                                                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                                        <state key="normal" title="Edit Photo" image="Edit Photo">
+                                                            <color key="titleColor" white="0.0" alpha="0.69522997360000005" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="editorAction:" destination="DQb-5I-YVE" eventType="touchUpInside" id="eTL-Qc-rdT"/>
+                                                        </connections>
+                                                    </button>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VQ9-RM-3k2">
+                                                        <rect key="frame" x="0.0" y="47" width="150" height="3"/>
+                                                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="3" id="AR0-48-khh"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bbK-Sv-TUg">
+                                                <rect key="frame" x="170" y="0.0" width="150" height="50"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xQj-lD-Lke">
+                                                        <rect key="frame" x="0.0" y="0.0" width="150" height="47"/>
+                                                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                                        <state key="normal" title="Edit Text" image="Edit Text">
+                                                            <color key="titleColor" white="0.0" alpha="0.69522997360000005" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="editorAction:" destination="DQb-5I-YVE" eventType="touchUpInside" id="TlA-6r-SRC"/>
+                                                        </connections>
+                                                    </button>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xHB-2Q-IXv">
+                                                        <rect key="frame" x="0.0" y="47" width="150" height="3"/>
+                                                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="3" id="MjR-TI-XJH"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="5SX-rq-895" secondAttribute="trailing" id="3a6-6W-xvf"/>
                                     <constraint firstAttribute="height" constant="50" id="JGa-Ju-XK3"/>
@@ -82,8 +104,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="9dK-Uk-f7a"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Fqq-xE-Wqo" firstAttribute="leading" secondItem="9dK-Uk-f7a" secondAttribute="leading" id="1jT-Iy-k3x"/>
                             <constraint firstItem="9dK-Uk-f7a" firstAttribute="bottom" secondItem="Fqq-xE-Wqo" secondAttribute="bottom" id="6aq-be-iIB"/>
@@ -96,17 +117,20 @@
                             <constraint firstItem="SkZ-uL-SgW" firstAttribute="leading" secondItem="9dK-Uk-f7a" secondAttribute="leading" id="dnE-ny-f3f"/>
                             <constraint firstItem="CrZ-yd-usb" firstAttribute="top" secondItem="9dK-Uk-f7a" secondAttribute="top" id="uV9-mU-FGI"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="9dK-Uk-f7a"/>
                     </view>
                     <connections>
                         <outlet property="controlsView" destination="SkZ-uL-SgW" id="RNV-PD-j48"/>
                         <outlet property="editPhotoButton" destination="2PV-oy-Wpd" id="GCE-A2-eNU"/>
+                        <outlet property="editPhotoThumbView" destination="VQ9-RM-3k2" id="KdB-pV-I5Z"/>
                         <outlet property="editTextButton" destination="xQj-lD-Lke" id="k23-92-Wts"/>
+                        <outlet property="editTextThumbView" destination="xHB-2Q-IXv" id="73S-vc-MiW"/>
                         <outlet property="imagePreviewView" destination="CrZ-yd-usb" id="djl-y9-lyN"/>
                         <outlet property="imageView" destination="oFX-jN-hCg" id="bF6-SE-U8S"/>
                         <segue destination="IGx-D0-k5a" kind="custom" identifier="Embed Photo Editor" customClass="ControlsSegue" customModule="PhotoEditorKit" customModuleProvider="target" id="amJ-pt-1sR"/>
                         <segue destination="3SD-n2-8wS" kind="custom" identifier="Embed Text Editor" customClass="ControlsSegue" customModule="PhotoEditorKit" customModuleProvider="target" id="4kB-I9-Geh"/>
                         <segue destination="yAu-Pj-3fP" kind="custom" identifier="Embed Background" customClass="ControlsSegue" customModule="PhotoEditorKit" customModuleProvider="target" id="7FR-la-tHW"/>
-                        <segue destination="NXd-BR-kfK" kind="custom" identifier="Embed Photo Exposure" customClass="ControlsSegue" customModule="PhotoEditorKit" customModuleProvider="target" id="c4D-Xi-duz"/>
+                        <segue destination="NXd-BR-kfK" kind="custom" identifier="Embed Photo CI Filter" customClass="ControlsSegue" customModule="PhotoEditorKit" customModuleProvider="target" id="c4D-Xi-duz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="STR-CP-CMb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -120,8 +144,8 @@
                     <view key="view" contentMode="scaleToFill" id="e15-6s-8ON">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="BcB-Zn-WxN"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="upy-V0-xLf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -138,7 +162,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WAr-M9-4aT">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="k7H-N1-xea">
                                     <size key="itemSize" width="100" height="100"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -190,14 +214,14 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="eaI-7A-7ZJ"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="WAr-M9-4aT" firstAttribute="trailing" secondItem="eaI-7A-7ZJ" secondAttribute="trailing" id="18C-Uv-hEp"/>
                             <constraint firstItem="WAr-M9-4aT" firstAttribute="top" secondItem="hVZ-2x-4Dc" secondAttribute="top" id="DpT-jt-6zE"/>
                             <constraint firstAttribute="bottom" secondItem="WAr-M9-4aT" secondAttribute="bottom" id="MCL-DA-QZ9"/>
                             <constraint firstItem="WAr-M9-4aT" firstAttribute="leading" secondItem="eaI-7A-7ZJ" secondAttribute="leading" id="rQi-yL-4V4"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="eaI-7A-7ZJ"/>
                     </view>
                     <size key="freeformSize" width="320" height="120"/>
                     <connections>
@@ -219,7 +243,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cvn-Ow-B5Z">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="27"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yVf-Qt-vjS">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yVf-Qt-vjS">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="27"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="SNP-yI-leV"/>
@@ -235,7 +259,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fzJ-uT-i52">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fzJ-uT-i52">
                                         <rect key="frame" x="270" y="0.0" width="50" height="27"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="J6o-dE-poM"/>
@@ -254,26 +278,25 @@
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Va-mc-tMp">
                                                 <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
                                             </switch>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JD7-lN-fJj">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JD7-lN-fJj">
                                                 <rect key="frame" x="124" y="0.0" width="37" height="31"/>
                                                 <state key="normal" title="Color"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gWe-24-bEY">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gWe-24-bEY">
                                                 <rect key="frame" x="236" y="0.0" width="54" height="31"/>
                                                 <state key="normal" title="Opacity"/>
                                             </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstItem="GEa-XI-kCK" firstAttribute="centerY" secondItem="CwA-Cj-xKR" secondAttribute="centerY" id="GDz-Aw-wEu"/>
                                     <constraint firstItem="GEa-XI-kCK" firstAttribute="centerX" secondItem="CwA-Cj-xKR" secondAttribute="centerX" id="lNF-pQ-zXu"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="9DV-gv-VPr"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="CwA-Cj-xKR" secondAttribute="trailing" id="JOe-6b-QAH"/>
                             <constraint firstItem="9DV-gv-VPr" firstAttribute="bottom" secondItem="CwA-Cj-xKR" secondAttribute="bottom" id="Sed-Sz-35j"/>
@@ -283,6 +306,7 @@
                             <constraint firstItem="cvn-Ow-B5Z" firstAttribute="top" secondItem="9DV-gv-VPr" secondAttribute="top" id="fQZ-1j-dKs"/>
                             <constraint firstItem="9DV-gv-VPr" firstAttribute="trailing" secondItem="cvn-Ow-B5Z" secondAttribute="trailing" id="s31-2i-me8"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="9DV-gv-VPr"/>
                     </view>
                     <size key="freeformSize" width="320" height="120"/>
                 </viewController>
@@ -300,7 +324,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="os7-Xu-yn2">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Wik-ZQ-S3w">
                                     <size key="itemSize" width="100" height="100"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -352,14 +376,14 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="HdW-2B-dzq"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="os7-Xu-yn2" firstAttribute="leading" secondItem="HdW-2B-dzq" secondAttribute="leading" id="7EC-je-w1p"/>
                             <constraint firstItem="os7-Xu-yn2" firstAttribute="trailing" secondItem="HdW-2B-dzq" secondAttribute="trailing" id="mAX-kD-KwY"/>
                             <constraint firstItem="os7-Xu-yn2" firstAttribute="top" secondItem="Hft-5S-d2I" secondAttribute="top" id="sb9-NN-vNQ"/>
                             <constraint firstAttribute="bottom" secondItem="os7-Xu-yn2" secondAttribute="bottom" id="v7h-1n-wdP"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="HdW-2B-dzq"/>
                     </view>
                     <size key="freeformSize" width="320" height="120"/>
                     <connections>
@@ -370,10 +394,10 @@
             </objects>
             <point key="canvasLocation" x="474" y="639"/>
         </scene>
-        <!--Exposure View Controller-->
+        <!--Filter View Controller-->
         <scene sceneID="iTX-0z-xdP">
             <objects>
-                <viewController id="NXd-BR-kfK" customClass="ExposureViewController" customModule="PhotoEditorKit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="NXd-BR-kfK" customClass="CIFilterViewController" customModule="PhotoEditorKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JDH-U3-qij">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -381,7 +405,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mva-Tt-din">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="29"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fPU-fb-yvH">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fPU-fb-yvH">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="29"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="uqE-ff-ee1"/>
@@ -400,7 +424,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="piQ-EP-Zn8">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="piQ-EP-Zn8">
                                         <rect key="frame" x="270" y="0.0" width="50" height="29"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="Zac-hT-fcj"/>
@@ -423,7 +447,7 @@
                                         </connections>
                                     </slider>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstItem="Ly6-Ct-8fX" firstAttribute="centerY" secondItem="Uhe-Hz-VG4" secondAttribute="centerY" id="372-G0-Nrm"/>
                                     <constraint firstItem="Ly6-Ct-8fX" firstAttribute="leading" secondItem="Uhe-Hz-VG4" secondAttribute="leading" constant="8" id="EA2-wI-UVy"/>
@@ -431,8 +455,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="EBF-M9-Pv4"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="mva-Tt-din" firstAttribute="leading" secondItem="EBF-M9-Pv4" secondAttribute="leading" id="2xQ-GU-6Wp"/>
                             <constraint firstItem="Uhe-Hz-VG4" firstAttribute="leading" secondItem="JDH-U3-qij" secondAttribute="leading" id="O7e-DV-LIr"/>
@@ -442,10 +465,12 @@
                             <constraint firstItem="Uhe-Hz-VG4" firstAttribute="top" secondItem="mva-Tt-din" secondAttribute="bottom" id="hN7-72-8oB"/>
                             <constraint firstItem="mva-Tt-din" firstAttribute="top" secondItem="EBF-M9-Pv4" secondAttribute="top" id="wIA-TC-iS5"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="EBF-M9-Pv4"/>
                     </view>
                     <size key="freeformSize" width="320" height="120"/>
                     <connections>
                         <outlet property="horizontalSlider" destination="Ly6-Ct-8fX" id="UMB-uZ-OxL"/>
+                        <outlet property="titleLabel" destination="tzr-fg-b3D" id="2oF-lN-tqe"/>
                         <segue destination="3iH-SL-IxW" kind="unwind" identifier="Cancel" unwindAction="unwind:" id="JAM-fa-QpD"/>
                     </connections>
                 </viewController>
@@ -459,8 +484,5 @@
         <image name="Background" width="25" height="25"/>
         <image name="Edit Photo" width="17" height="13"/>
         <image name="Edit Text" width="18" height="17"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

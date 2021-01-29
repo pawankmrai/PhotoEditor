@@ -4,6 +4,6 @@ protocol EditorDelegate {
     func activate(control: ControlType)
 }
 
-protocol PhotoExposure {
+protocol CIFilterDelegate {
     func update(exposure value: Double)
 }
