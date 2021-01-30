@@ -20,8 +20,6 @@ class TextEditorViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    // MARK:- Control Action
-    
 }
 
 extension TextEditorViewController: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -59,5 +57,24 @@ extension TextEditorViewController: UICollectionViewDelegateFlowLayout {
         let control = controls[indexPath.row]
         editorDelegate?.activate(control: control.type)
     }
+	
+	func collectionView(_ collectionView: UICollectionView,
+						layout collectionViewLayout: UICollectionViewLayout,
+						insetForSectionAt section: Int) -> UIEdgeInsets {
+		//
+		let cellWidth = 100
+		let cellCount = controls.count
+		let cellSpacing = 10
+		let collectionViewWidth = collectionView.frame.width
+		
+		//
+		let totalCellWidth = cellWidth * cellCount
+		let totalSpacingWidth = cellSpacing * (cellCount - 1)
+		
+		let leftInset = max(0.0, (collectionViewWidth - CGFloat(totalCellWidth + totalSpacingWidth)) / 2)
+		let rightInset = leftInset
+		
+		return UIEdgeInsets(top: 0, left: leftInset, bottom: 0, right: rightInset)
+	}
 }
 

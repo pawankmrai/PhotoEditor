@@ -440,8 +440,31 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uhe-Hz-VG4">
                                 <rect key="frame" x="0.0" y="29" width="320" height="91"/>
                                 <subviews>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ly6-Ct-8fX">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dax-2k-guW">
+                                        <rect key="frame" x="153.5" y="12.5" width="13.5" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uA6-vG-P8f" userLabel="Divider View">
+                                        <rect key="frame" x="159.5" y="36.5" width="1" height="20"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="1d4-1C-LIs"/>
+                                            <constraint firstAttribute="width" constant="1" id="z34-hl-NKK"/>
+                                        </constraints>
+                                    </view>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="10" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ly6-Ct-8fX" customClass="AppSlider" customModule="PhotoEditorKit" customModuleProvider="target">
                                         <rect key="frame" x="6" y="30.5" width="308" height="31"/>
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="trackHeight">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="thumbRadious">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="sliderChanged:" destination="NXd-BR-kfK" eventType="valueChanged" id="2L3-En-frD"/>
                                         </connections>
@@ -450,8 +473,12 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstItem="Ly6-Ct-8fX" firstAttribute="centerY" secondItem="Uhe-Hz-VG4" secondAttribute="centerY" id="372-G0-Nrm"/>
+                                    <constraint firstItem="uA6-vG-P8f" firstAttribute="centerX" secondItem="Ly6-Ct-8fX" secondAttribute="centerX" id="9kO-lS-R4N"/>
                                     <constraint firstItem="Ly6-Ct-8fX" firstAttribute="leading" secondItem="Uhe-Hz-VG4" secondAttribute="leading" constant="8" id="EA2-wI-UVy"/>
                                     <constraint firstAttribute="trailing" secondItem="Ly6-Ct-8fX" secondAttribute="trailing" constant="8" id="NiN-BP-TMl"/>
+                                    <constraint firstItem="uA6-vG-P8f" firstAttribute="top" secondItem="dax-2k-guW" secondAttribute="bottom" constant="8" id="Y2Q-Ei-Y90"/>
+                                    <constraint firstItem="dax-2k-guW" firstAttribute="centerX" secondItem="uA6-vG-P8f" secondAttribute="centerX" id="l7s-kw-ZwZ"/>
+                                    <constraint firstItem="uA6-vG-P8f" firstAttribute="centerY" secondItem="Ly6-Ct-8fX" secondAttribute="centerY" constant="1" id="uNq-3X-tPH"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -470,6 +497,7 @@
                     <size key="freeformSize" width="320" height="120"/>
                     <connections>
                         <outlet property="horizontalSlider" destination="Ly6-Ct-8fX" id="UMB-uZ-OxL"/>
+                        <outlet property="horizontalSliderValueLabel" destination="dax-2k-guW" id="nwc-Jp-LcW"/>
                         <outlet property="titleLabel" destination="tzr-fg-b3D" id="2oF-lN-tqe"/>
                         <segue destination="3iH-SL-IxW" kind="unwind" identifier="Cancel" unwindAction="unwind:" id="JAM-fa-QpD"/>
                     </connections>
@@ -477,7 +505,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6sH-bU-5SE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="3iH-SL-IxW" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-208" y="855"/>
+            <point key="canvasLocation" x="-208.125" y="854.57746478873241"/>
         </scene>
     </scenes>
     <resources>
