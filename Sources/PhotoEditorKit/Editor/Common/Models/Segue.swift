@@ -13,5 +13,6 @@ public enum SegueType: String {
 	case text 		= "Embed Text Editor"
 	case background = "Embed Background"
 	case ci   		= "Embed Photo CI Filter"
+    case cancel     = "Cancel"
 }
 
