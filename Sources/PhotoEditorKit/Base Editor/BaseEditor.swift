@@ -2,8 +2,8 @@ import UIKit
 
 public class BaseEditorViewController: UIViewController {
     // MARK: Private
-    internal private(set) var image: UIImage!
-    private var currentControlsViewController: UIViewController?
+    internal    var image: UIImage!
+    private     var currentControlsViewController: UIViewController?
     
     // MARK: IBOutlets
     @IBOutlet internal 	var imageView: UIImageView!
@@ -64,9 +64,10 @@ public class BaseEditorViewController: UIViewController {
 			let textEditorController = segue.destination as? TextEditorViewController
             textEditorController?.editorDelegate = self
 		case SegueType.ci.rawValue:
-			let exposureViewController = segue.destination as? CIFilterViewController
-            exposureViewController?.filterUpdateDelegate = self
-			exposureViewController?.controlType = sender as? ControlType
+			let ciFilterViewController = segue.destination as? CIFilterViewController
+            ciFilterViewController?.filterUpdateDelegate = self
+            ciFilterViewController?.actionDelegate = self
+			ciFilterViewController?.controlType = sender as? ControlType
 		default:
 			break
 		}
@@ -121,6 +122,20 @@ extension BaseEditorViewController: EditorDelegate {
 			break
 		}
 		
+    }
+    
+}
+
+extension BaseEditorViewController: ActionDelegate {
+    //
+    func cancel() {
+        imageView.image = image
+        performSegue(withIdentifier: SegueType.photo.rawValue, sender: self)
+    }
+    
+    func done() {
+        image = imageView.image
+        performSegue(withIdentifier: SegueType.photo.rawValue, sender: self)
     }
     
 }
