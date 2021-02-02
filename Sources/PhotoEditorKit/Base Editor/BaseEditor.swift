@@ -6,7 +6,10 @@ public class BaseEditorViewController: UIViewController {
     private     var currentControlsViewController: UIViewController?
     
     // MARK: IBOutlets
-    @IBOutlet internal 	var imageView: UIImageView!
+    
+    @IBOutlet weak var imageView: JLStickerImageView!
+    
+    //@IBOutlet internal 	var imageView: UIImageView!
     @IBOutlet private 	var imagePreviewView: UIView!
 	//
     @IBOutlet private 	var editPhotoButton: UIButton!
@@ -35,6 +38,15 @@ public class BaseEditorViewController: UIViewController {
     //
     public override func viewDidLoad() {
         super.viewDidLoad()
+        
+        imageView.addLabel(message: "My Name is Manish Jain")
+        imageView.textColor = UIColor.white
+        imageView.textAlpha = 1
+      //  imageView.currentlyEditingLabel.closeView!.image = UIImage(named: "cancel")
+        imageView.currentlyEditingLabel.rotateView?.image = PhotoEditorKitAsset.rotateOption.image
+        imageView.currentlyEditingLabel.border?.strokeColor = UIColor.white.cgColor
+        imageView.currentlyEditingLabel.labelTextView?.font = UIFont.systemFont(ofSize: 14.0)
+        imageView.currentlyEditingLabel.labelTextView?.becomeFirstResponder()
         
         //
         imageView.image = image
