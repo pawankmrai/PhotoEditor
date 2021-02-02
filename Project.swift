@@ -26,5 +26,16 @@ let project = Project(name: "PhotoEditor",
                                sources: ["Sources/PhotoEditorKit/**/*.swift"],
                                resources: ["Sources/PhotoEditorKit/**/*.storyboard",
                                            "Sources/PhotoEditorKit/**/*.xcassets",],
+                               dependencies: [
+                                .target(name: "PhotoEditorUI")
+                               ]),
+                        Target(name: "PhotoEditorUI",
+                               platform: .iOS,
+                               product: .framework,
+                               bundleId: "ios.pawan.photoeditorui",
+                               deploymentTarget: .iOS(targetVersion: "13.0",
+                                                      devices: [.iphone, .ipad]),
+                               infoPlist: "Config/PhotoEditorUI.plist",
+                               sources: ["Sources/PhotoEditorUI/**/*.swift"],
                                dependencies: [])
                       ])

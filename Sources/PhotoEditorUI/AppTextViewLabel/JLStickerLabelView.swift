@@ -264,7 +264,7 @@ extension JLStickerLabelView: UITextViewDelegate {
 //MARK: -
 //MARK: GestureRecognizer
 
-extension JLStickerLabelView: UIGestureRecognizerDelegate, adjustFontSizeToFillRectProtocol {
+extension JLStickerLabelView: UIGestureRecognizerDelegate, AdjustFontSizeToFillRectProtocol {
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         if gestureRecognizer == singleTapShowHide {
             return true

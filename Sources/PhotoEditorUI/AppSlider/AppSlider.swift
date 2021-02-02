@@ -1,6 +1,6 @@
 import UIKit
 
-class AppSlider: UISlider {
+public class AppSlider: UISlider {
 	// MARK:- Properties
 	@IBInspectable var trackHeight: CGFloat = 2
 	@IBInspectable var thumbRadious: CGFloat  = 15
@@ -13,7 +13,7 @@ class AppSlider: UISlider {
 		return view
 	}()
 	//
-	override func awakeFromNib() {
+    public override func awakeFromNib() {
 		super.awakeFromNib()
 		//
 		let thumb = thumbImage(radius: thumbRadious)
@@ -33,7 +33,7 @@ class AppSlider: UISlider {
         }
 	}
 	//
-	override func trackRect(forBounds bounds: CGRect) -> CGRect {
+    public override func trackRect(forBounds bounds: CGRect) -> CGRect {
 		let point = CGPoint(x: bounds.minX, y: bounds.midY)
 		return CGRect(origin: point, size: CGSize(width: bounds.width, height: trackHeight))
 	}

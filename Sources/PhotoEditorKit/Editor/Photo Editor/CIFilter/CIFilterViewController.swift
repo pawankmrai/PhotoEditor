@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PhotoEditorUI
 
 class CIFilterViewController: UIViewController {
     // MARK: IBOutlets

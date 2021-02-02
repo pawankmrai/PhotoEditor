@@ -1,15 +1,14 @@
 import UIKit
+import PhotoEditorUI
 
 public class BaseEditorViewController: UIViewController {
-    // MARK: Private
+    // MARK: Internal / Private
     internal    var image: UIImage!
+    internal    var text: String!
     private     var currentControlsViewController: UIViewController?
     
     // MARK: IBOutlets
-    
-    @IBOutlet weak var imageView: JLStickerImageView!
-    
-    //@IBOutlet internal 	var imageView: UIImageView!
+    @IBOutlet internal  var imageView: JLStickerImageView!
     @IBOutlet private 	var imagePreviewView: UIView!
 	//
     @IBOutlet private 	var editPhotoButton: UIButton!
@@ -17,12 +16,11 @@ public class BaseEditorViewController: UIViewController {
 	//
 	@IBOutlet private 	var editTextButton: UIButton!
 	@IBOutlet private 	var editTextThumbView: UIView!
-	
 	//
     @IBOutlet private 	var controlsView: UIView!
     
     // MARK: Public
-    public static func instance(with image: UIImage) -> BaseEditorViewController {
+    public static func instance(with image: UIImage, text: String) -> BaseEditorViewController {
         //
         let bundle = Bundle(for: BaseEditorViewController.self)
         let baseStoryboard = UIStoryboard(name: "BaseEditor", bundle: bundle)
@@ -32,6 +30,7 @@ public class BaseEditorViewController: UIViewController {
             fatalError("Can't initialise base photo editor")
         }
         baseViewController.image = image
+        baseViewController.text = text
         return baseViewController
     }
     
@@ -39,7 +38,7 @@ public class BaseEditorViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        imageView.addLabel(message: "My Name is Manish Jain")
+        imageView.addLabel(message: text)
         imageView.textColor = UIColor.white
         imageView.textAlpha = 1
       //  imageView.currentlyEditingLabel.closeView!.image = UIImage(named: "cancel")

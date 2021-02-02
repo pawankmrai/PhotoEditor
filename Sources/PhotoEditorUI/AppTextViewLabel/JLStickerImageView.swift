@@ -193,7 +193,7 @@ extension JLStickerImageView: JLStickerLabelViewDelegate {
 //MARK: -
 //MARK: Set propeties
 
-extension JLStickerImageView: adjustFontSizeToFillRectProtocol {
+extension JLStickerImageView: AdjustFontSizeToFillRectProtocol {
     
     public enum textShadowPropterties {
         case offSet(CGSize)
