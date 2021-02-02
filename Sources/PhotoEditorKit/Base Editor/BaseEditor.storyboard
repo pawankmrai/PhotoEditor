@@ -21,7 +21,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CrZ-yd-usb">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="398"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oFX-jN-hCg">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oFX-jN-hCg" customClass="JLStickerImageView" customModule="PhotoEditorUI">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="398"/>
                                     </imageView>
                                 </subviews>
@@ -128,7 +128,7 @@
                         <outlet property="editTextButton" destination="xQj-lD-Lke" id="k23-92-Wts"/>
                         <outlet property="editTextThumbView" destination="xHB-2Q-IXv" id="73S-vc-MiW"/>
                         <outlet property="imagePreviewView" destination="CrZ-yd-usb" id="djl-y9-lyN"/>
-                        <outlet property="imageView" destination="oFX-jN-hCg" id="bF6-SE-U8S"/>
+                        <outlet property="imageView" destination="oFX-jN-hCg" id="3Iv-Sp-WA9"/>
                         <segue destination="IGx-D0-k5a" kind="custom" identifier="Embed Photo Editor" customClass="ControlsSegue" customModule="PhotoEditorKit" customModuleProvider="target" id="amJ-pt-1sR"/>
                         <segue destination="3SD-n2-8wS" kind="custom" identifier="Embed Text Editor" customClass="ControlsSegue" customModule="PhotoEditorKit" customModuleProvider="target" id="4kB-I9-Geh"/>
                         <segue destination="yAu-Pj-3fP" kind="custom" identifier="Embed Background" customClass="ControlsSegue" customModule="PhotoEditorKit" customModuleProvider="target" id="7FR-la-tHW"/>
@@ -456,7 +456,7 @@
                                             <constraint firstAttribute="width" constant="1" id="z34-hl-NKK"/>
                                         </constraints>
                                     </view>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-2" maxValue="2" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ly6-Ct-8fX" customClass="AppSlider" customModule="PhotoEditorKit" customModuleProvider="target">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-2" maxValue="2" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ly6-Ct-8fX" customClass="AppSlider" customModule="PhotoEditorUI">
                                         <rect key="frame" x="6" y="30" width="308" height="31"/>
                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>

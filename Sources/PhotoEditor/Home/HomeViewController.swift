@@ -31,7 +31,7 @@ extension HomeViewController: UINavigationControllerDelegate, UIImagePickerContr
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         //
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            let editor = BaseEditorViewController.instance(with: image)
+            let editor = BaseEditorViewController.instance(with: image, text: "Write your caption here.")
             navigationController?.pushViewController(editor, animated: true)
         }
         //
