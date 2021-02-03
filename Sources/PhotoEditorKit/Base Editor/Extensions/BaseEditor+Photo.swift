@@ -1,4 +1,11 @@
 //
+//  BaseEditor+Photo.swift
+//  PhotoEditorKit
+//
+//  Created by VDB Developer on 03/02/21.
+//  Copyright © 2021 Pawan. All rights reserved.
+//
+
 extension BaseEditorViewController: CIFilterDelegate {
     //
     func saturation(with value: Double) {
