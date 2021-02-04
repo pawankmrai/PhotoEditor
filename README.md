@@ -11,3 +11,6 @@
 	-  `tuist generate`
 3. Run Xcode project
 	- type `xed .` in terminal and enter
+
+#### Dependancy graph
+![alt text](./graph.png)

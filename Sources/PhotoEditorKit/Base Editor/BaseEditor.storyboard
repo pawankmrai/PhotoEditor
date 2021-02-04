@@ -19,16 +19,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CrZ-yd-usb">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="398"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="354"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oFX-jN-hCg" customClass="JLStickerImageView" customModule="PhotoEditorUI">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="398"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="354"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YB2-fi-Afd">
+                                        <rect key="frame" x="8" y="313" width="33" height="33"/>
+                                        <state key="normal" image="Fit to size"/>
+                                        <state key="selected" image="Fit to artboard"/>
+                                        <connections>
+                                            <action selector="changeImageViewSize:" destination="DQb-5I-YVE" eventType="touchUpInside" id="QgB-fu-tda"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sSm-7t-86k">
+                                        <rect key="frame" x="279" y="313" width="33" height="33"/>
+                                        <state key="normal" image="Preview"/>
+                                        <connections>
+                                            <action selector="previewAfterEditingDone:" destination="DQb-5I-YVE" eventType="touchUpInside" id="Avl-68-uGR"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="oFX-jN-hCg" firstAttribute="top" secondItem="CrZ-yd-usb" secondAttribute="top" id="28X-xn-MD1"/>
                                     <constraint firstAttribute="bottom" secondItem="oFX-jN-hCg" secondAttribute="bottom" id="2mf-Gn-nc0"/>
+                                    <constraint firstItem="YB2-fi-Afd" firstAttribute="leading" secondItem="CrZ-yd-usb" secondAttribute="leading" constant="8" id="9I1-LQ-hMq"/>
+                                    <constraint firstAttribute="trailing" secondItem="sSm-7t-86k" secondAttribute="trailing" constant="8" id="MsX-uM-9vg"/>
+                                    <constraint firstAttribute="bottom" secondItem="sSm-7t-86k" secondAttribute="bottom" constant="8" id="ljv-U5-Z6s"/>
                                     <constraint firstAttribute="trailing" secondItem="oFX-jN-hCg" secondAttribute="trailing" id="lw8-x5-OCs"/>
+                                    <constraint firstAttribute="bottom" secondItem="YB2-fi-Afd" secondAttribute="bottom" constant="8" id="ohd-ql-xMe"/>
                                     <constraint firstItem="oFX-jN-hCg" firstAttribute="leading" secondItem="CrZ-yd-usb" secondAttribute="leading" id="zdi-e4-oFh"/>
                                 </constraints>
                             </view>
@@ -121,6 +140,9 @@
                             <constraint firstItem="CrZ-yd-usb" firstAttribute="top" secondItem="9dK-Uk-f7a" secondAttribute="top" id="uV9-mU-FGI"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="jdh-GD-HwZ">
+                        <barButtonItem key="rightBarButtonItem" image="Export" id="gkm-GQ-bBW"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="controlsView" destination="SkZ-uL-SgW" id="RNV-PD-j48"/>
                         <outlet property="editPhotoButton" destination="2PV-oy-Wpd" id="GCE-A2-eNU"/>
@@ -137,7 +159,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="STR-CP-CMb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="104" y="77"/>
+            <point key="canvasLocation" x="1100.625" y="76.056338028169009"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="cWZ-eJ-3U1">
@@ -152,7 +174,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="upy-V0-xLf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="908" y="-92"/>
+            <point key="canvasLocation" x="1905" y="-92.957746478873247"/>
         </scene>
         <!--Photo Editor View Controller-->
         <scene sceneID="Exk-WK-A2h">
@@ -509,11 +531,33 @@
             </objects>
             <point key="canvasLocation" x="-208.125" y="854.57746478873241"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="pAI-Ns-mnj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vHS-xh-rgJ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Mfe-nR-4jZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="DQb-5I-YVE" kind="relationship" relationship="rootViewController" id="aK0-1y-vMi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ibh-Eh-NgS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="103.125" y="76.056338028169009"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Background" width="25" height="25"/>
         <image name="Edit Photo" width="17" height="13"/>
         <image name="Edit Text" width="18" height="17"/>
+        <image name="Export" width="19" height="17"/>
+        <image name="Fit to artboard" width="33" height="33"/>
+        <image name="Fit to size" width="33" height="33"/>
+        <image name="Preview" width="33" height="33"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
