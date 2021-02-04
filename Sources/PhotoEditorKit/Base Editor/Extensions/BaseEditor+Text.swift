@@ -41,7 +41,7 @@ extension BaseEditorViewController: TextFont {
     func font(_: UIFont) {
     }
     
-    func font(size: Double) {
+    func font(size: Int) {
     }
     
 }
@@ -68,7 +68,7 @@ extension BaseEditorViewController: TextFade {
 
 extension BaseEditorViewController: TextLayerRotate {
     //
-    func layerRotate(angle: Double) {
+    func layerRotate(angle: Int) {
     }
     
 }
