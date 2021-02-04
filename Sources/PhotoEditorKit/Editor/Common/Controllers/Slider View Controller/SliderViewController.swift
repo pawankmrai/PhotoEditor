@@ -9,7 +9,7 @@
 import UIKit
 import PhotoEditorUI
 
-class CIFilterViewController: UIViewController {
+class SliderViewController: UIViewController {
     // MARK: IBOutlets
     @IBOutlet var horizontalSlider: AppSlider!
 	@IBOutlet var titleLabel: UILabel!
@@ -18,6 +18,9 @@ class CIFilterViewController: UIViewController {
     // MARK: Public
     public var filterUpdateDelegate: CIFilterDelegate?
     public var actionDelegate: ActionDelegate?
+    public var textFontUpdateDelegate: TextFont?
+    public var textFadeDelegate: TextFade?
+    public var textLayerRotateDelegate: TextLayerRotate?
     
     public var controlType: ControlType? {
         didSet {
@@ -62,6 +65,18 @@ class CIFilterViewController: UIViewController {
             horizontalSlider.minimumValue = 0
             horizontalSlider.maximumValue = 1
             horizontalSlider.value = 0.5
+        case .fontSize:
+            horizontalSlider.minimumValue = 10
+            horizontalSlider.maximumValue = 30
+            horizontalSlider.value = 20
+        case .fade:
+            horizontalSlider.minimumValue = 0
+            horizontalSlider.maximumValue = 1
+            horizontalSlider.value = 0.5
+        case .rotate:
+            horizontalSlider.minimumValue = 0
+            horizontalSlider.maximumValue = 360
+            horizontalSlider.value = 0
         default:
             break
         }
@@ -91,11 +106,18 @@ class CIFilterViewController: UIViewController {
             filterUpdateDelegate?.sharpness(with: sliderValue)
         case .vignette:
             filterUpdateDelegate?.vignette(with: sliderValue)
+        case .fontSize:
+            textFontUpdateDelegate?.font(size: Int(sliderValue))
+        case .fade:
+            textFadeDelegate?.fade(value: sliderValue)
+        case .rotate:
+            textLayerRotateDelegate?.layerRotate(angle: Int(sliderValue))
         default:
             break
         }
         
     }
+    // MARK:- Cancel and Done Actions
     
     @IBAction func cancelTapped(_ sender: Any) {
         actionDelegate?.cancel()

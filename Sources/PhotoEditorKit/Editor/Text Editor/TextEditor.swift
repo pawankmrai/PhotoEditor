@@ -7,7 +7,8 @@ class TextEditorViewController: UIViewController {
     // MARK: Private
     private var controls: [Control] = [Control(type: .background),
                                        Control(type: .font),
-                                       Control(type: .fonSize),
+                                       Control(type: .fontSize),
+                                       Control(type: .fade),
                                        Control(type: .shadow),
                                        Control(type: .color),
                                        Control(type: .rotate)]
@@ -15,7 +16,7 @@ class TextEditorViewController: UIViewController {
     // MARK: Public
     public var editorDelegate: EditorDelegate?
     
-    
+    // MARK:- Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
     }

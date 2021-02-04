@@ -35,7 +35,7 @@ protocol TextShadow {
 }
 
 protocol TextFont {
-    func font(_ : UIFont)
+    func font(name : String)
     func font(size: Int)
 }
 

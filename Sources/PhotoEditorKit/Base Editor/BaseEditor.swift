@@ -6,6 +6,7 @@ public class BaseEditorViewController: UIViewController {
     internal    var image: UIImage!
     internal    var text: String!
     private     var currentControlsViewController: UIViewController?
+    private     var segueIdentifier: String = SegueType.photo.rawValue // Hold the last segue parformed
     
     // MARK: IBOutlets
     @IBOutlet internal  var imageView: JLStickerImageView!
@@ -42,7 +43,7 @@ public class BaseEditorViewController: UIViewController {
         imageView.addLabel(message: text)
         imageView.textColor = UIColor.white
         imageView.textAlpha = 1
-      //  imageView.currentlyEditingLabel.closeView!.image = UIImage(named: "cancel")
+        //imageView.currentlyEditingLabel.closeView!.image = UIImage(named: "cancel")
         imageView.currentlyEditingLabel.rotateView?.image = PhotoEditorKitAsset.rotateOption.image
         imageView.currentlyEditingLabel.border?.strokeColor = UIColor.white.cgColor
         imageView.currentlyEditingLabel.labelTextView?.font = UIFont.systemFont(ofSize: 14.0)
@@ -53,10 +54,6 @@ public class BaseEditorViewController: UIViewController {
         
         // default photo editor
         editorAction(editPhotoButton)
-    }
-    
-    @IBAction func unwind( _ seg: UIStoryboardSegue) {
-		performSegue(withIdentifier: SegueType.photo.rawValue, sender: self)
     }
     
     public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -75,11 +72,18 @@ public class BaseEditorViewController: UIViewController {
 		case SegueType.text.rawValue:
 			let textEditorController = segue.destination as? TextEditorViewController
             textEditorController?.editorDelegate = self
-		case SegueType.ci.rawValue:
-			let ciFilterViewController = segue.destination as? CIFilterViewController
-            ciFilterViewController?.filterUpdateDelegate = self
-            ciFilterViewController?.actionDelegate = self
-			ciFilterViewController?.controlType = sender as? ControlType
+		case SegueType.slider.rawValue:
+			let sliderViewController = segue.destination as? SliderViewController
+            sliderViewController?.filterUpdateDelegate = self
+            sliderViewController?.actionDelegate = self
+            sliderViewController?.textFontUpdateDelegate = self
+            sliderViewController?.textFadeDelegate = self
+            sliderViewController?.textLayerRotateDelegate = self
+			sliderViewController?.controlType = sender as? ControlType
+        case SegueType.fontList.rawValue:
+            let fontListViewController = segue.destination as? FontListViewController
+            fontListViewController?.fontUpdateDelegate = self
+            fontListViewController?.actionDelegate = self
 		default:
 			break
 		}
@@ -95,9 +99,8 @@ public class BaseEditorViewController: UIViewController {
         //
         if sender.isSelected {
             sender.isSelected = false
-            //controlsView.isHidden = true
         } else {
-            var segueIdentifier: String?
+            //
             switch sender {
             case editPhotoButton:
 				segueIdentifier = SegueType.photo.rawValue
@@ -110,12 +113,10 @@ public class BaseEditorViewController: UIViewController {
             for button in [editPhotoButton, editTextButton] {
                 button?.isSelected = sender == button
             }
-            //
-            //controlsView.isHidden = false
 			//
 			editPhotoThumbView.alpha = sender == editPhotoButton ? 1.0 : 0.0
 			editTextThumbView.alpha = sender == editTextButton ? 1.0 : 0.0
-            performSegue(withIdentifier: segueIdentifier!, sender: self)
+            performSegue(withIdentifier: segueIdentifier, sender: self)
         }
     }
     
@@ -144,8 +145,10 @@ extension BaseEditorViewController: EditorDelegate {
 		switch control {
 		case .background:
 			performSegue(withIdentifier: SegueType.background.rawValue, sender: control)
-		case .exposure, .brightness, .contrast, .saturation, .sharpness, .vignette:
-			performSegue(withIdentifier: SegueType.ci.rawValue, sender: control)
+        case .exposure, .brightness, .contrast, .saturation, .sharpness, .vignette, .fontSize, .fade, .rotate:
+			performSegue(withIdentifier: SegueType.slider.rawValue, sender: control)
+        case .font:
+            performSegue(withIdentifier: SegueType.fontList.rawValue, sender: control)
 		default:
 			break
 		}
@@ -158,12 +161,12 @@ extension BaseEditorViewController: ActionDelegate {
     //
     func cancel() {
         imageView.image = image
-        performSegue(withIdentifier: SegueType.photo.rawValue, sender: self)
+        performSegue(withIdentifier: segueIdentifier, sender: self)
     }
     
     func done() {
         image = imageView.image
-        performSegue(withIdentifier: SegueType.photo.rawValue, sender: self)
+        performSegue(withIdentifier: segueIdentifier, sender: self)
     }
     
 }

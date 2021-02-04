@@ -12,7 +12,8 @@ public enum SegueType: String {
 	case photo		= "Embed Photo Editor"
 	case text 		= "Embed Text Editor"
 	case background = "Embed Background"
-	case ci   		= "Embed Photo CI Filter"
+	case slider   	= "Embed Slider Change"
     case cancel     = "Cancel"
+    case fontList   = "Embed Font List"
 }
 
