@@ -19,6 +19,7 @@ public class BaseEditorViewController: UIViewController {
 	//
     @IBOutlet private 	var controlsView: UIView!
     
+    
     // MARK: Public
     public static func instance(with image: UIImage, text: String) -> BaseEditorViewController {
         //
@@ -116,6 +117,22 @@ public class BaseEditorViewController: UIViewController {
 			editTextThumbView.alpha = sender == editTextButton ? 1.0 : 0.0
             performSegue(withIdentifier: segueIdentifier!, sender: self)
         }
+    }
+    
+    /// Used to set content type on image view
+    /// Aspect fill / Aspect fill
+    /// - Parameter sender: Action Button
+    @IBAction func changeImageViewSize(_ sender: UIButton) {
+        //
+        sender.isSelected = !sender.isSelected
+        //
+        imageView.contentMode = sender.isSelected ? .scaleAspectFit : .scaleAspectFill
+    }
+    
+    /// Preview the final edited image before sharing
+    /// - Parameter sender: Action Button
+    @IBAction func previewAfterEditingDone(_ sender: UIButton) {
+        
     }
     
 }

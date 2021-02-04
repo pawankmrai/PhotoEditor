@@ -69,7 +69,7 @@ extension PhotoEditorViewController: UICollectionViewDelegateFlowLayout {
 		//
 		let cellWidth = 100
 		let cellCount = controls.count
-		let cellSpacing = 10
+		let cellSpacing = 0
 		let collectionViewWidth = collectionView.bounds.width
 		
 		//
