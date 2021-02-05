@@ -6,6 +6,7 @@
 //  Copyright © 2021 Pawan. All rights reserved.
 //
 import UIKit
+import PhotoEditorUI
 
 // MARK:- Layer Background
 
@@ -38,10 +39,12 @@ extension BaseEditorViewController: TextShadow {
 
 extension BaseEditorViewController: TextFont {
     //
-    func font(_: UIFont) {
+    func font(name: String) {
+        imageView.fontName = name
     }
     
     func font(size: Int) {
+        
     }
     
 }
