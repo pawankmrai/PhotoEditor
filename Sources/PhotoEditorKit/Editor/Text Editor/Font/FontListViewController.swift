@@ -56,7 +56,7 @@ extension FontListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 90, height: 90)
+        return CGSize(width: 90, height: 80)
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -72,7 +72,7 @@ extension FontListViewController: UICollectionViewDelegateFlowLayout {
         //
         let cellWidth = 90
         let cellCount = fonts.count
-        let cellSpacing = 20
+        let cellSpacing = 0
         let collectionViewWidth = collectionView.bounds.width
         
         //

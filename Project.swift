@@ -25,7 +25,9 @@ let project = Project(name: "PhotoEditor",
                                infoPlist: "Config/PhotoEditorKit.plist",
                                sources: ["Sources/PhotoEditorKit/**/*.swift"],
                                resources: ["Sources/PhotoEditorKit/**/*.storyboard",
-                                           "Sources/PhotoEditorKit/**/*.xcassets",],
+                                           "Sources/PhotoEditorKit/**/*.xcassets",
+                                           "Sources/PhotoEditorKit/Fonts/*.ttf",
+                                           "Sources/PhotoEditorKit/Fonts/*.txt"],
                                dependencies: [
                                 .target(name: "PhotoEditorUI")
                                ]),

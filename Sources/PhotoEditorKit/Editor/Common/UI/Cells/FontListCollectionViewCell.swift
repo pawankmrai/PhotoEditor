@@ -30,7 +30,7 @@ class FontListCollectionViewCell: UICollectionViewCell {
     
     private func configure() {
         //
-        fontNameLabel.font = UIFont(name: font, size: 18)
+        fontNameLabel.font = UIFont(name: font, size: 15)
         fontNameLabel?.text = font
     }
 }

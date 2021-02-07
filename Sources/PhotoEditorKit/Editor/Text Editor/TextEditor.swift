@@ -51,7 +51,7 @@ extension TextEditorViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 100, height: 100)
+        return CGSize(width: 80, height: 100)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -63,7 +63,7 @@ extension TextEditorViewController: UICollectionViewDelegateFlowLayout {
 						layout collectionViewLayout: UICollectionViewLayout,
 						insetForSectionAt section: Int) -> UIEdgeInsets {
 		//
-		let cellWidth = 100
+		let cellWidth = 80
 		let cellCount = controls.count
 		let cellSpacing = 0
 		let collectionViewWidth = collectionView.frame.width

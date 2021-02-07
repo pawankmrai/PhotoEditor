@@ -6,7 +6,7 @@ public class BaseEditorViewController: UIViewController {
     internal    var image: UIImage!
     internal    var text: String!
     private     var currentControlsViewController: UIViewController?
-    private     var segueIdentifier: String = SegueType.photo.rawValue // Hold the last segue parformed
+    private     var segueIdentifier: String = SegueType.photo.rawValue // Hold the last segue performed
     
     // MARK: IBOutlets
     @IBOutlet internal  var imageView: JLStickerImageView!
@@ -84,6 +84,12 @@ public class BaseEditorViewController: UIViewController {
             let fontListViewController = segue.destination as? FontListViewController
             fontListViewController?.fontUpdateDelegate = self
             fontListViewController?.actionDelegate = self
+        case SegueType.textShadow.rawValue:
+            let shadowViewController = segue.destination as? ShadowViewController
+            shadowViewController?.actionDelegate = self
+        case SegueType.background.rawValue:
+            let backgroundViewController = segue.destination as? BackgroundViewController
+            backgroundViewController?.actionDelegate = self
 		default:
 			break
 		}
@@ -112,7 +118,7 @@ public class BaseEditorViewController: UIViewController {
             //
             for button in [editPhotoButton, editTextButton] {
                 button?.isSelected = sender == button
-            }
+            }            
 			//
 			editPhotoThumbView.alpha = sender == editPhotoButton ? 1.0 : 0.0
 			editTextThumbView.alpha = sender == editTextButton ? 1.0 : 0.0
@@ -149,6 +155,8 @@ extension BaseEditorViewController: EditorDelegate {
 			performSegue(withIdentifier: SegueType.slider.rawValue, sender: control)
         case .font:
             performSegue(withIdentifier: SegueType.fontList.rawValue, sender: control)
+        case .shadow:
+            performSegue(withIdentifier: SegueType.textShadow.rawValue, sender: control)
 		default:
 			break
 		}
