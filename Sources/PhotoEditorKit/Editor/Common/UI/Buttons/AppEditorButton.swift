@@ -10,7 +10,7 @@ public class AppEditorButton: UIButton {
         //
         didSet {
             titleLabel?.font = isSelected ? AppFonts.Styles.heavy.rawValue : AppFonts.Styles.normal.rawValue
-            titleLabel?.backgroundColor = isSelected ? AppColors.normal.color : AppColors.heavy.color
+            titleLabel?.textColor = isSelected ? AppColors.normal.color : AppColors.heavy.color
         }
     }
 }

@@ -408,7 +408,7 @@ extension JLStickerLabelView {
         labelTextView?.clipsToBounds = true
         labelTextView?.delegate = self
         labelTextView?.backgroundColor = UIColor(red: 0/255.0, green: 10/255.0, blue: 43/255.0, alpha: 0.5)
-        labelTextView?.tintColor = UIColor(red: 33, green: 45, blue: 59, alpha: 1)
+        labelTextView?.tintColor = UIColor(red: 33/255, green: 45/255, blue: 59/255, alpha: 1)
         labelTextView?.isScrollEnabled = false
         labelTextView?.isSelectable = true
         labelTextView?.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)

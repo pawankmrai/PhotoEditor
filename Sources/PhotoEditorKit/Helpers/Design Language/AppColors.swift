@@ -20,9 +20,9 @@ public extension UIColor {
         public var color: UIColor {
             switch self {
             case .normal:
-                return UIColor(red: 66, green: 85, blue: 114, alpha: 1)
+                return UIColor(red: 66/255, green: 85/255, blue: 114/255, alpha: 1)
             case .heavy:
-                return UIColor(red: 72, green: 72, blue: 72, alpha: 1)
+                return UIColor(red: 72/255, green: 72/255, blue: 72/255, alpha: 1)
             }
         }
     }
