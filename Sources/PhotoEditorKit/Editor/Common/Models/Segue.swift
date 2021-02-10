@@ -15,6 +15,6 @@ public enum SegueType: String {
 	case slider   	    = "Embed Slider Change"
     case fontList       = "Embed Font List"
     case textShadow     = "Embed Text Shadow"
-    
+    case colorList      = "Embed Color List"
 }
 

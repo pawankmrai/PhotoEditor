@@ -90,6 +90,10 @@ public class BaseEditorViewController: UIViewController {
         case SegueType.background.rawValue:
             let backgroundViewController = segue.destination as? BackgroundViewController
             backgroundViewController?.actionDelegate = self
+        case SegueType.colorList.rawValue:
+            let colorListController = segue.destination as? ColorListViewController
+            colorListController?.actionDelegate = self
+            colorListController?.colorUpdateDelegate = self
 		default:
 			break
 		}
@@ -157,6 +161,8 @@ extension BaseEditorViewController: EditorDelegate {
             performSegue(withIdentifier: SegueType.fontList.rawValue, sender: control)
         case .shadow:
             performSegue(withIdentifier: SegueType.textShadow.rawValue, sender: control)
+        case .color:
+            performSegue(withIdentifier: SegueType.colorList.rawValue, sender: control)
 		default:
 			break
 		}
