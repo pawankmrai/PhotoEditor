@@ -20,6 +20,9 @@ protocol CIFilterDelegate {
     func vignette(with value: Double)
 }
 
+protocol PhotoSize {
+    func size(with ratio: AspectRatio)
+}
 
 // MARK:- Text Editor Protocols
 
