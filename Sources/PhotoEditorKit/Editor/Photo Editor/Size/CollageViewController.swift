@@ -1,23 +1,55 @@
 //
-//  SizeViewController.swift
+//  CollageViewController.swift
 //  PhotoEditorKit
 //
-//  Created by VDB Developer on 10/02/21.
+//  Created by VDB Developer on 11/02/21.
 //  Copyright © 2021 Pawan. All rights reserved.
 //
 
 import UIKit
 
-class SizeViewController: UIViewController {
+public enum Collage: CaseIterable {
+    case normal
+    case fourSquare
+    case twoVertical
+    case twoSquareOneHorizontal
+    case twoSquareOneVertical
+    case oneVerticalTwoSquare
+    case oneHorizontalThreeSquare
+}
+
+extension Collage {
+    //
+    var name: String {
+        switch self {
+        case .normal:
+            return "Collage0"
+        case .fourSquare:
+            return "Collage1"
+        case .twoVertical:
+            return "Collage2"
+        case .twoSquareOneHorizontal:
+            return "Collage3"
+        case .twoSquareOneVertical:
+            return "Collage4"
+        case .oneVerticalTwoSquare:
+            return "Collage5"
+        case .oneHorizontalThreeSquare:
+            return "Collage6"
+        }
+    }
+}
+
+class CollageViewController: UIViewController {
     // MARK: IBOutlets
     @IBOutlet private var collectionView: UICollectionView!
     
     // MARK: Public
     public var actionDelegate: ActionDelegate?
-    public var sizeUpdateDelegate: PhotoSize?
+    public var collageCreateDelegate: CollageShape?
     
     // MARK: Private
-    private var ratios: [AspectRatio] = AspectRatio.allCases
+    private var collages: [Collage] = Collage.allCases
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,53 +64,54 @@ class SizeViewController: UIViewController {
     @IBAction func doneTapped(_ sender: Any) {
         actionDelegate?.done()
     }
+    
 }
 
-extension SizeViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension CollageViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     //
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        return ratios.count
+        return collages.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //
         guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: SizeCollectionViewCell.reuseIdentifier,
-                for: indexPath) as? SizeCollectionViewCell else {
-            fatalError("Couldn't dequeue SizeCollectionViewCell")
+                withReuseIdentifier: CollageCollectionViewCell.reuseIdentifier,
+                for: indexPath) as? CollageCollectionViewCell else {
+            fatalError("Couldn't dequeue CollageCollectionViewCell")
         }
         //
-        let ratio = ratios[indexPath.row]
-        cell.ratio = ratio
+        let collage = collages[indexPath.row]
+        cell.collage = collage
         return cell
     }
     
 }
 
-extension SizeViewController: UICollectionViewDelegateFlowLayout {
+extension CollageViewController: UICollectionViewDelegateFlowLayout {
     //
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 80, height: 80)
+        return CGSize(width: 50, height: 60)
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
         //
-        let ratio = ratios[indexPath.row]
-        sizeUpdateDelegate?.size(with: ratio)
+        let collage = collages[indexPath.row]
+        collageCreateDelegate?.create(collage: collage)
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
         //
-        let cellWidth = 80
-        let cellCount = ratios.count
-        let cellSpacing = 10
+        let cellWidth = 50
+        let cellCount = collages.count
+        let cellSpacing = 0
         let collectionViewWidth = collectionView.bounds.width
         
         //

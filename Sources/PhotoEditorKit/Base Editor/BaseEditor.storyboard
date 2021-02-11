@@ -186,6 +186,7 @@
                         <segue destination="Mmr-hm-zMa" kind="custom" identifier="Embed Text Shadow" customClass="ControlsSegue" customModule="PhotoEditorKit" customModuleProvider="target" id="72Z-uD-08c"/>
                         <segue destination="Sb6-mX-In5" kind="custom" identifier="Embed Color List" customClass="ControlsSegue" customModule="PhotoEditorKit" customModuleProvider="target" id="g1h-Vq-cJw"/>
                         <segue destination="dvs-Fi-g9H" kind="custom" identifier="Embed Size List" customClass="ControlsSegue" customModule="PhotoEditorKit" customModuleProvider="target" id="Yix-I6-ab9"/>
+                        <segue destination="XNp-EQ-gHT" kind="custom" identifier="Embed Collage List" customClass="ControlsSegue" customModule="PhotoEditorKit" customModuleProvider="target" id="bLl-Ab-Y8f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="STR-CP-CMb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1109,6 +1110,124 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="77w-1p-JsH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2758" y="843"/>
+        </scene>
+        <!--Collage View Controller-->
+        <scene sceneID="XUt-fu-mss">
+            <objects>
+                <viewController id="XNp-EQ-gHT" customClass="CollageViewController" customModule="PhotoEditorKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CND-MC-uEz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Xgd-Pa-4lZ">
+                                <rect key="frame" x="8" y="5" width="304" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rsc-aL-JSt">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="S0y-N8-vzZ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" red="0.25882352939999997" green="0.33333333329999998" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelTapped:" destination="XNp-EQ-gHT" eventType="touchUpInside" id="gSe-si-Acv"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Collage" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQJ-tK-GDH">
+                                        <rect key="frame" x="58" y="0.0" width="188" height="30"/>
+                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="15"/>
+                                        <color key="textColor" red="0.25882352939999997" green="0.33333333329999998" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DeD-WK-fUP">
+                                        <rect key="frame" x="254" y="0.0" width="50" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="YaU-CN-ts0"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                        <state key="normal" title="Done">
+                                            <color key="titleColor" red="0.0" green="0.61568627450000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="doneTapped:" destination="XNp-EQ-gHT" eventType="touchUpInside" id="yQT-hM-K4i"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TIF-CU-PWw">
+                                <rect key="frame" x="0.0" y="35" width="320" height="85"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="uXF-Li-sPt">
+                                    <size key="itemSize" width="60" height="60"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollageCollectionViewCell" id="qMl-Gg-Z0D" customClass="CollageCollectionViewCell" customModule="PhotoEditorKit" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="12.5" width="50" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="UCW-p4-yqr">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="60"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w3m-5g-Abe">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="60" id="MUo-wD-ONz"/>
+                                                        <constraint firstAttribute="width" constant="50" id="Ter-Pb-ZAY"/>
+                                                    </constraints>
+                                                </view>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O1m-Gr-CPd">
+                                                    <rect key="frame" x="10" y="7.5" width="30" height="45"/>
+                                                    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="45" id="v57-xS-iVi"/>
+                                                        <constraint firstAttribute="width" constant="30" id="zf7-hH-PX2"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="O1m-Gr-CPd" firstAttribute="centerY" secondItem="UCW-p4-yqr" secondAttribute="centerY" id="69X-tv-OtT"/>
+                                                <constraint firstItem="w3m-5g-Abe" firstAttribute="centerX" secondItem="UCW-p4-yqr" secondAttribute="centerX" id="Cgi-nL-fpp"/>
+                                                <constraint firstItem="O1m-Gr-CPd" firstAttribute="centerX" secondItem="UCW-p4-yqr" secondAttribute="centerX" id="mTG-kw-19B"/>
+                                                <constraint firstItem="w3m-5g-Abe" firstAttribute="centerY" secondItem="UCW-p4-yqr" secondAttribute="centerY" id="qA3-yS-Zzf"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="50" height="60"/>
+                                        <connections>
+                                            <outlet property="collageView" destination="O1m-Gr-CPd" id="kFP-ax-41A"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="XNp-EQ-gHT" id="IRN-8D-hKT"/>
+                                    <outlet property="delegate" destination="XNp-EQ-gHT" id="Gcg-OF-fWh"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="LOT-YR-W5Q"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="TIF-CU-PWw" firstAttribute="bottom" secondItem="LOT-YR-W5Q" secondAttribute="bottom" id="7PD-9i-YsB"/>
+                            <constraint firstItem="TIF-CU-PWw" firstAttribute="trailing" secondItem="LOT-YR-W5Q" secondAttribute="trailing" id="AJg-sK-QyR"/>
+                            <constraint firstItem="LOT-YR-W5Q" firstAttribute="trailing" secondItem="Xgd-Pa-4lZ" secondAttribute="trailing" constant="8" id="Si2-eC-l6Q"/>
+                            <constraint firstItem="TIF-CU-PWw" firstAttribute="leading" secondItem="LOT-YR-W5Q" secondAttribute="leading" id="isx-tG-4iT"/>
+                            <constraint firstItem="Xgd-Pa-4lZ" firstAttribute="leading" secondItem="LOT-YR-W5Q" secondAttribute="leading" constant="8" id="prI-Xd-hCD"/>
+                            <constraint firstItem="TIF-CU-PWw" firstAttribute="top" secondItem="Xgd-Pa-4lZ" secondAttribute="bottom" id="sSJ-pm-5k9"/>
+                            <constraint firstItem="Xgd-Pa-4lZ" firstAttribute="top" secondItem="LOT-YR-W5Q" secondAttribute="top" constant="5" id="zAQ-IW-q9O"/>
+                        </constraints>
+                    </view>
+                    <size key="freeformSize" width="320" height="120"/>
+                    <connections>
+                        <outlet property="collectionView" destination="TIF-CU-PWw" id="rWz-G4-a1O"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WmZ-hV-05k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3468.75" y="842.95774647887322"/>
         </scene>
     </scenes>
     <resources>

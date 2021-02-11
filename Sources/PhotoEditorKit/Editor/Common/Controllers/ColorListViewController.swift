@@ -54,7 +54,7 @@ extension ColorListViewController: UICollectionViewDataSource, UICollectionViewD
         guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: ColorListCollectionViewCell.reuseIdentifier,
                 for: indexPath) as? ColorListCollectionViewCell else {
-            fatalError("Couldn't deque ColorListCollectionViewCell")
+            fatalError("Couldn't dequeue ColorListCollectionViewCell")
         }
         //
         let color = colors[indexPath.row]

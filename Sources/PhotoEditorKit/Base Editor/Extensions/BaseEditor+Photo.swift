@@ -41,3 +41,11 @@ extension BaseEditorViewController: PhotoSize {
     }
     
 }
+
+extension BaseEditorViewController: CollageShape {
+    //
+    func create(collage shape: Collage) {
+        
+    }
+    
+}

@@ -14,7 +14,9 @@ class PhotoEditorViewController: UIViewController {
 									   Control(type: .contrast),
 									   Control(type: .sharpness),
 									   Control(type: .vignette),
-									   Control(type: .color)]
+                                       Control(type: .color),
+                                       Control(type: .grid),
+                                       Control(type: .collage)]
     
     // MARK: Public
     public var editorDelegate: EditorDelegate?
@@ -39,7 +41,7 @@ extension PhotoEditorViewController: UICollectionViewDataSource, UICollectionVie
         guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: HorizontalCollectionViewCell.reuseIdentifier,
                 for: indexPath) as? HorizontalCollectionViewCell else {
-            fatalError("Couldn't deque HorizontalCollectionViewCell")
+            fatalError("Couldn't dequeue HorizontalCollectionViewCell")
         }
         //
         let control = controls[indexPath.row]

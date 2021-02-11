@@ -24,6 +24,10 @@ protocol PhotoSize {
     func size(with ratio: AspectRatio)
 }
 
+protocol CollageShape {
+    func create(collage shape: Collage)
+}
+
 // MARK:- Text Editor Protocols
 
 protocol TextLayerBackground {
