@@ -13,7 +13,11 @@ public class HorizontalCollectionViewCell: UICollectionViewCell {
     }
     
     // MARK: IBOutlets
-    @IBOutlet private var controlNameLabel: UILabel!
+    @IBOutlet private var controlNameLabel: UILabel! {
+        didSet {
+            controlNameLabel?.font = AppFonts.Styles.small.rawValue
+        }
+    }
     @IBOutlet private var controlImageView: UIImageView!
     
     // MARK:- Init

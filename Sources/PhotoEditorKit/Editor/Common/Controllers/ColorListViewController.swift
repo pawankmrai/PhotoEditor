@@ -1,22 +1,35 @@
+//
+//  ColorListViewController.swift
+//  PhotoEditorKit
+//
+//  Created by VDB Developer on 10/02/21.
+//  Copyright © 2021 Pawan. All rights reserved.
+//
+
 import UIKit
 
-class FontListViewController: UIViewController {
-    //
-    // MARK: IBOutlet
+class ColorListViewController: UIViewController {
+    // MARK: IBOutlets
     @IBOutlet private var collectionView: UICollectionView!
     
-    // MARK: Private
-    private var fonts: [String] = UIFont.familyNames
-    
     // MARK: Public
-    public var fontUpdateDelegate: TextFont?
+    public var colorUpdateDelegate: TextColor?
     public var actionDelegate: ActionDelegate?
     
-    //
+    // MARK: Private
+    private var colors: [UIColor] = [UIColor.black,
+                                     UIColor.white,
+                                     UIColor.blue,
+                                     UIColor.cyan,
+                                     UIColor.green,
+                                     UIColor.yellow,
+                                     UIColor.red]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
     }
-    
+
     // MARK:- Cancel and Done Actions
     
     @IBAction func cancelTapped(_ sender: Any) {
@@ -28,50 +41,50 @@ class FontListViewController: UIViewController {
     }
 }
 
-extension FontListViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension ColorListViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     //
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        return fonts.count
+        return colors.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //
         guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: FontListCollectionViewCell.reuseIdentifier,
-                for: indexPath) as? FontListCollectionViewCell else {
-            fatalError("Couldn't deque FontListCollectionViewCell")
+                withReuseIdentifier: ColorListCollectionViewCell.reuseIdentifier,
+                for: indexPath) as? ColorListCollectionViewCell else {
+            fatalError("Couldn't deque ColorListCollectionViewCell")
         }
         //
-        let font = fonts[indexPath.row]
-        cell.font = font
+        let color = colors[indexPath.row]
+        cell.color = color
         return cell
     }
     
 }
 
-extension FontListViewController: UICollectionViewDelegateFlowLayout {
+extension ColorListViewController: UICollectionViewDelegateFlowLayout {
     //
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 90, height: 80)
+        return CGSize(width: 60, height: 60)
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
         //
-        let fontName = fonts[indexPath.row]
-        fontUpdateDelegate?.font(name: fontName)
+        let color = colors[indexPath.row]
+        colorUpdateDelegate?.color(color)
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
         //
-        let cellWidth = 90
-        let cellCount = fonts.count
+        let cellWidth = 60
+        let cellCount = colors.count
         let cellSpacing = 0
         let collectionViewWidth = collectionView.bounds.width
         

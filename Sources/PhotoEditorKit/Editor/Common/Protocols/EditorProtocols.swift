@@ -20,6 +20,9 @@ protocol CIFilterDelegate {
     func vignette(with value: Double)
 }
 
+protocol PhotoSize {
+    func size(with ratio: AspectRatio)
+}
 
 // MARK:- Text Editor Protocols
 
@@ -30,7 +33,7 @@ protocol TextLayerBackground {
 }
 
 protocol TextShadow {
-    func shawdow(color: UIColor)
+    func shadow(color: UIColor)
     func shadow(opacity: Double)
 }
 

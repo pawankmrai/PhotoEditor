@@ -33,3 +33,11 @@ extension BaseEditorViewController: CIFilterDelegate {
         imageView.image = image.adjustedBrightness(value: value)
     }
 }
+
+extension BaseEditorViewController: PhotoSize {
+    //
+    func size(with ratio: AspectRatio) {
+        
+    }
+    
+}

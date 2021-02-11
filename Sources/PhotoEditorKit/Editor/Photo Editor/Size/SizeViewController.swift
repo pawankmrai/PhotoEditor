@@ -1,18 +1,24 @@
+//
+//  SizeViewController.swift
+//  PhotoEditorKit
+//
+//  Created by VDB Developer on 10/02/21.
+//  Copyright © 2021 Pawan. All rights reserved.
+//
+
 import UIKit
 
-class FontListViewController: UIViewController {
-    //
-    // MARK: IBOutlet
+class SizeViewController: UIViewController {
+    // MARK: IBOutlets
     @IBOutlet private var collectionView: UICollectionView!
     
-    // MARK: Private
-    private var fonts: [String] = UIFont.familyNames
-    
     // MARK: Public
-    public var fontUpdateDelegate: TextFont?
     public var actionDelegate: ActionDelegate?
+    public var sizeUpdateDelegate: PhotoSize?
     
-    //
+    // MARK: Private
+    private var ratios: [AspectRatio] = AspectRatio.allCases
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -28,51 +34,51 @@ class FontListViewController: UIViewController {
     }
 }
 
-extension FontListViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension SizeViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     //
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        return fonts.count
+        return ratios.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //
         guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: FontListCollectionViewCell.reuseIdentifier,
-                for: indexPath) as? FontListCollectionViewCell else {
-            fatalError("Couldn't deque FontListCollectionViewCell")
+                withReuseIdentifier: SizeCollectionViewCell.reuseIdentifier,
+                for: indexPath) as? SizeCollectionViewCell else {
+            fatalError("Couldn't deque SizeCollectionViewCell")
         }
         //
-        let font = fonts[indexPath.row]
-        cell.font = font
+        let ratio = ratios[indexPath.row]
+        cell.ratio = ratio
         return cell
     }
     
 }
 
-extension FontListViewController: UICollectionViewDelegateFlowLayout {
+extension SizeViewController: UICollectionViewDelegateFlowLayout {
     //
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 90, height: 80)
+        return CGSize(width: 80, height: 80)
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
         //
-        let fontName = fonts[indexPath.row]
-        fontUpdateDelegate?.font(name: fontName)
+        let ratio = ratios[indexPath.row]
+        sizeUpdateDelegate?.size(with: ratio)
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
         //
-        let cellWidth = 90
-        let cellCount = fonts.count
-        let cellSpacing = 0
+        let cellWidth = 80
+        let cellCount = ratios.count
+        let cellSpacing = 10
         let collectionViewWidth = collectionView.bounds.width
         
         //

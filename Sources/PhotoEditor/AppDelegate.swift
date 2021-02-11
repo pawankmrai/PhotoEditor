@@ -10,7 +10,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil
     ) -> Bool {
         // Update whole app tint color
-        window?.tintColor = .darkGray
+        window?.tintColor = .red
         return true
     }
 }

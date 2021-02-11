@@ -27,7 +27,7 @@ extension BaseEditorViewController: TextLayerBackground {
 
 extension BaseEditorViewController: TextShadow {
     //
-    func shawdow(color: UIColor) {
+    func shadow(color: UIColor) {
     }
     
     func shadow(opacity: Double) {
