@@ -6,6 +6,8 @@
 //  Copyright © 2021 Pawan. All rights reserved.
 //
 
+import PhotoEditorUI
+
 extension BaseEditorViewController: CIFilterDelegate {
     //
     func saturation(with value: Double) {

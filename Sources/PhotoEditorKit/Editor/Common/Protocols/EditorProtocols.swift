@@ -32,8 +32,8 @@ protocol CollageShape {
 
 protocol TextLayerBackground {
     func layerBackground(active: Bool)
-    func layerBackground(color: UIColor)
-    func layerBackground(opacity: Double)
+    func layerBackgroundColor(with button: UIButton)
+    func layerBackgroundOpacity()
 }
 
 protocol TextShadow {

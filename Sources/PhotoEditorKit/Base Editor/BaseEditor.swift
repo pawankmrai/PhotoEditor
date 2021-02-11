@@ -10,7 +10,7 @@ public class BaseEditorViewController: UIViewController {
     
     // MARK: IBOutlets
     @IBOutlet internal  var imageView: JLStickerImageView!
-    @IBOutlet private 	var imagePreviewView: UIView!
+    @IBOutlet internal 	var imagePreviewView: UIView!
 	//
     @IBOutlet private 	var editPhotoButton: UIButton!
 	@IBOutlet private 	var editPhotoThumbView: UIView!
@@ -90,6 +90,7 @@ public class BaseEditorViewController: UIViewController {
         case SegueType.background.rawValue:
             let backgroundViewController = segue.destination as? BackgroundViewController
             backgroundViewController?.actionDelegate = self
+            backgroundViewController?.backgroundColorDelegate = self
         case SegueType.colorList.rawValue:
             let colorListController = segue.destination as? ColorListViewController
             colorListController?.actionDelegate = self

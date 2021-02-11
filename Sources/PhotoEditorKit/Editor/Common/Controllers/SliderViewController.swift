@@ -77,6 +77,10 @@ class SliderViewController: UIViewController {
             horizontalSlider.minimumValue = 0
             horizontalSlider.maximumValue = 360
             horizontalSlider.value = 0
+        case .opacity:
+            horizontalSlider.minimumValue = 0
+            horizontalSlider.maximumValue = 1
+            horizontalSlider.value = 0.5
         default:
             break
         }

@@ -341,14 +341,23 @@
                                         <subviews>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Va-mc-tMp">
                                                 <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="enableBackgroundLayer:" destination="yAu-Pj-3fP" eventType="valueChanged" id="5PZ-kn-g3Y"/>
+                                                </connections>
                                             </switch>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JD7-lN-fJj">
                                                 <rect key="frame" x="124" y="0.0" width="25" height="31"/>
                                                 <state key="normal" image="CColor"/>
+                                                <connections>
+                                                    <action selector="changeColor:" destination="yAu-Pj-3fP" eventType="touchUpInside" id="O56-X7-g2w"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gWe-24-bEY">
                                                 <rect key="frame" x="224" y="0.0" width="25" height="31"/>
                                                 <state key="normal" image="Opacity"/>
+                                                <connections>
+                                                    <action selector="changeOpacity:" destination="yAu-Pj-3fP" eventType="touchUpInside" id="p5P-px-k1U"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -569,7 +578,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6sH-bU-5SE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="24" y="855"/>
+            <point key="canvasLocation" x="22.5" y="854.57746478873241"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pAI-Ns-mnj">
