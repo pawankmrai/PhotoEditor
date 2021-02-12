@@ -39,5 +39,6 @@ let project = Project(name: "PhotoEditor",
                                                       devices: [.iphone, .ipad]),
                                infoPlist: "Config/PhotoEditorUI.plist",
                                sources: ["Sources/PhotoEditorUI/**/*.swift"],
+                               resources: ["Sources/PhotoEditorUI/Resources/**/*.plist"],
                                dependencies: [])
                       ])

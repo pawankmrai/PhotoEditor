@@ -10,7 +10,7 @@ public class BaseEditorViewController: UIViewController {
     
     // MARK: IBOutlets
     @IBOutlet internal  var imageView: JLStickerImageView!
-    @IBOutlet private 	var imagePreviewView: UIView!
+    @IBOutlet internal 	var imagePreviewView: UIView!
 	//
     @IBOutlet private 	var editPhotoButton: UIButton!
 	@IBOutlet private 	var editPhotoThumbView: UIView!
@@ -90,6 +90,7 @@ public class BaseEditorViewController: UIViewController {
         case SegueType.background.rawValue:
             let backgroundViewController = segue.destination as? BackgroundViewController
             backgroundViewController?.actionDelegate = self
+            backgroundViewController?.backgroundColorDelegate = self
         case SegueType.colorList.rawValue:
             let colorListController = segue.destination as? ColorListViewController
             colorListController?.actionDelegate = self
@@ -98,6 +99,10 @@ public class BaseEditorViewController: UIViewController {
             let sizeViewController = segue.destination as? SizeViewController
             sizeViewController?.actionDelegate = self
             sizeViewController?.sizeUpdateDelegate = self
+        case SegueType.collage.rawValue:
+            let collageViewController = segue.destination as? CollageViewController
+            collageViewController?.actionDelegate = self
+            collageViewController?.collageCreateDelegate = self
 		default:
 			break
 		}
@@ -169,6 +174,8 @@ extension BaseEditorViewController: EditorDelegate {
             performSegue(withIdentifier: SegueType.colorList.rawValue, sender: control)
         case .size:
             performSegue(withIdentifier: SegueType.sizeList.rawValue, sender: control)
+        case .collage:
+            performSegue(withIdentifier: SegueType.collage.rawValue, sender: control)
 		default:
 			break
 		}

@@ -36,7 +36,7 @@ extension TextEditorViewController: UICollectionViewDataSource, UICollectionView
         guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: HorizontalCollectionViewCell.reuseIdentifier,
                 for: indexPath) as? HorizontalCollectionViewCell else {
-            fatalError("Couldn't deque HorizontalCollectionViewCell")
+            fatalError("Couldn't dequeue HorizontalCollectionViewCell")
         }
         //
         let control = controls[indexPath.row]

@@ -24,12 +24,16 @@ protocol PhotoSize {
     func size(with ratio: AspectRatio)
 }
 
+protocol CollageShape {
+    func create(collage shape: Collage)
+}
+
 // MARK:- Text Editor Protocols
 
 protocol TextLayerBackground {
     func layerBackground(active: Bool)
-    func layerBackground(color: UIColor)
-    func layerBackground(opacity: Double)
+    func layerBackgroundColor(with button: UIButton)
+    func layerBackgroundOpacity()
 }
 
 protocol TextShadow {

@@ -6,6 +6,8 @@
 //  Copyright © 2021 Pawan. All rights reserved.
 //
 
+import PhotoEditorUI
+
 extension BaseEditorViewController: CIFilterDelegate {
     //
     func saturation(with value: Double) {
@@ -37,6 +39,14 @@ extension BaseEditorViewController: CIFilterDelegate {
 extension BaseEditorViewController: PhotoSize {
     //
     func size(with ratio: AspectRatio) {
+        
+    }
+    
+}
+
+extension BaseEditorViewController: CollageShape {
+    //
+    func create(collage shape: Collage) {
         
     }
     

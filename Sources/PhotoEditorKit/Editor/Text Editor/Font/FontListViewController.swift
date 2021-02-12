@@ -41,7 +41,7 @@ extension FontListViewController: UICollectionViewDataSource, UICollectionViewDe
         guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: FontListCollectionViewCell.reuseIdentifier,
                 for: indexPath) as? FontListCollectionViewCell else {
-            fatalError("Couldn't deque FontListCollectionViewCell")
+            fatalError("Couldn't dequeue FontListCollectionViewCell")
         }
         //
         let font = fonts[indexPath.row]

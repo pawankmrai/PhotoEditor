@@ -12,13 +12,44 @@ import PhotoEditorUI
 
 extension BaseEditorViewController: TextLayerBackground {
     //
+    func layerBackgroundColor(with button: UIButton) {
+        let colorPickerViewController = AppColorPickerViewController()
+        colorPickerViewController.colorPickerDelegate = self
+        colorPickerViewController.modalPresentationStyle = .popover
+        colorPickerViewController.preferredContentSize = CGSize(width: UIScreen.main.bounds.width / 0.6,
+                                                                height: UIScreen.main.bounds.height / 0.6)
+        if let popoverController = colorPickerViewController.popoverPresentationController {
+            popoverController.sourceView = button
+            popoverController.permittedArrowDirections = .any
+            popoverController.delegate = self
+            //colorPickerViewController.delegate = self
+        }
+        present(colorPickerViewController, animated: true, completion: nil)
+    }
+    
+    func layerBackgroundOpacity() {
+        performSegue(withIdentifier: SegueType.slider.rawValue, sender: ControlType.opacity)
+    }
+    
+    //
     func layerBackground(active: Bool) {
+        
     }
     
-    func layerBackground(color: UIColor) {
+}
+
+extension BaseEditorViewController: UIPopoverPresentationControllerDelegate {
+    // Override the iPhone behaviour that presents a popover as fullscreen
+    public func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        // Return no adaptive presentation style, use default presentation behaviour
+        return .none
     }
-    
-    func layerBackground(opacity: Double) {
+}
+
+extension BaseEditorViewController: ColorPickerDelegate {
+    //
+    public func selected(color: UIColor) {
+        imagePreviewView.backgroundColor = color
     }
     
 }
