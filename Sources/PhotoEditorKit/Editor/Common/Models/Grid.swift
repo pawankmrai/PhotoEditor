@@ -29,7 +29,22 @@ extension Grid {
 		case .threeToTwo:
 			return "3X2"
 		case .threeToThree:
-			return "3X2"
+			return "3X3"
 		}
+    }
+    //
+    var image: String {
+        switch self {
+        case .oneToThree:
+            return "Grid0"
+        case .twoToThree:
+            return "Grid1"
+        case .threeToOne:
+            return "Grid2"
+        case .threeToTwo:
+            return "Grid3"
+        case .threeToThree:
+            return "Grid4"
+        }
     }
 }

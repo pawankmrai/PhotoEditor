@@ -87,6 +87,7 @@ public class BaseEditorViewController: UIViewController {
         case SegueType.textShadow.rawValue:
             let shadowViewController = segue.destination as? ShadowViewController
             shadowViewController?.actionDelegate = self
+            shadowViewController?.textShadowDelegate = self
         case SegueType.background.rawValue:
             let backgroundViewController = segue.destination as? BackgroundViewController
             backgroundViewController?.actionDelegate = self
@@ -103,6 +104,10 @@ public class BaseEditorViewController: UIViewController {
             let collageViewController = segue.destination as? CollageViewController
             collageViewController?.actionDelegate = self
             collageViewController?.collageCreateDelegate = self
+        case SegueType.grid.rawValue:
+            let gridViewController = segue.destination as? GridViewController
+            gridViewController?.actionDelegate = self
+            gridViewController?.gridCreateDelegate = self
 		default:
 			break
 		}
@@ -176,6 +181,8 @@ extension BaseEditorViewController: EditorDelegate {
             performSegue(withIdentifier: SegueType.sizeList.rawValue, sender: control)
         case .collage:
             performSegue(withIdentifier: SegueType.collage.rawValue, sender: control)
+        case .grid:
+            performSegue(withIdentifier: SegueType.grid.rawValue, sender: control)
 		default:
 			break
 		}
