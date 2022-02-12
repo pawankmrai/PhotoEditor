@@ -187,6 +187,7 @@
                         <segue destination="Sb6-mX-In5" kind="custom" identifier="Embed Color List" customClass="ControlsSegue" customModule="PhotoEditorKit" customModuleProvider="target" id="g1h-Vq-cJw"/>
                         <segue destination="dvs-Fi-g9H" kind="custom" identifier="Embed Size List" customClass="ControlsSegue" customModule="PhotoEditorKit" customModuleProvider="target" id="Yix-I6-ab9"/>
                         <segue destination="XNp-EQ-gHT" kind="custom" identifier="Embed Collage List" customClass="ControlsSegue" customModule="PhotoEditorKit" customModuleProvider="target" id="bLl-Ab-Y8f"/>
+                        <segue destination="cTQ-vM-j1e" kind="custom" identifier="Embed Grid List" customClass="ControlsSegue" customModule="PhotoEditorKit" customModuleProvider="target" id="UvE-te-ShV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="STR-CP-CMb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -286,7 +287,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j0R-Jk-ZKU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-559" y="639"/>
+            <point key="canvasLocation" x="-1350" y="855"/>
         </scene>
         <!--Background View Controller-->
         <scene sceneID="uCG-yy-ami">
@@ -465,7 +466,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6y1-7N-hRf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="77" y="638"/>
+            <point key="canvasLocation" x="-669" y="854"/>
         </scene>
         <!--Slider View Controller-->
         <scene sceneID="iTX-0z-xdP">
@@ -716,7 +717,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="03X-Vl-L1n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1821" y="637"/>
+            <point key="canvasLocation" x="4140" y="843"/>
         </scene>
         <!--Shadow View Controller-->
         <scene sceneID="gbA-gB-usc">
@@ -772,10 +773,16 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQr-Yc-6I2">
                                                 <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
                                                 <state key="normal" image="CColor"/>
+                                                <connections>
+                                                    <action selector="colorPicker:" destination="Mmr-hm-zMa" eventType="touchUpInside" id="cXY-Yu-iGD"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D6o-Kl-lCZ">
                                                 <rect key="frame" x="49" y="0.0" width="25" height="25"/>
                                                 <state key="normal" image="Opacity"/>
+                                                <connections>
+                                                    <action selector="opacity:" destination="Mmr-hm-zMa" eventType="touchUpInside" id="0He-Hw-byl"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -1237,6 +1244,135 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WmZ-hV-05k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3468.75" y="842.95774647887322"/>
+        </scene>
+        <!--Grid View Controller-->
+        <scene sceneID="tJX-Fi-vFC">
+            <objects>
+                <viewController id="cTQ-vM-j1e" customClass="GridViewController" customModule="PhotoEditorKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ANq-K3-br8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="UwF-2h-l4J">
+                                <rect key="frame" x="8" y="5" width="304" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jm8-sD-6Pq">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="4xq-eM-ezI"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" red="0.25882352939999997" green="0.33333333329999998" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelTapped:" destination="cTQ-vM-j1e" eventType="touchUpInside" id="o16-O3-lvJ"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BeY-b3-nmu">
+                                        <rect key="frame" x="58" y="0.0" width="188" height="30"/>
+                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="15"/>
+                                        <color key="textColor" red="0.25882352939999997" green="0.33333333329999998" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I3h-SS-9GX">
+                                        <rect key="frame" x="254" y="0.0" width="50" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="9Uq-Gl-DgG"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                        <state key="normal" title="Done">
+                                            <color key="titleColor" red="0.0" green="0.61568627450000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="doneTapped:" destination="cTQ-vM-j1e" eventType="touchUpInside" id="P64-rD-BDM"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2vx-75-wrW">
+                                <rect key="frame" x="0.0" y="35" width="320" height="85"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="rsm-Ey-n2Y">
+                                    <size key="itemSize" width="60" height="60"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GridCollectionViewCell" id="T3R-vu-iTd" customClass="GridCollectionViewCell" customModule="PhotoEditorKit" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="7.5" width="70" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="IXU-rY-YaX">
+                                            <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jZi-AX-uEg">
+                                                    <rect key="frame" x="10" y="5" width="50" height="60"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5a-cE-TUf">
+                                                            <rect key="frame" x="12" y="52" width="26" height="13.5"/>
+                                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="11"/>
+                                                            <color key="textColor" red="0.45882352939999999" green="0.45882352939999999" blue="0.45882352939999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="60" id="EQx-5d-p2e"/>
+                                                        <constraint firstAttribute="width" constant="50" id="U5E-v5-phr"/>
+                                                    </constraints>
+                                                </view>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CBe-hq-ald">
+                                                    <rect key="frame" x="20" y="15" width="30" height="40"/>
+                                                    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="s8q-Zj-guM"/>
+                                                        <constraint firstAttribute="height" constant="40" id="vbw-2r-ew8"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="L5a-cE-TUf" firstAttribute="centerX" secondItem="CBe-hq-ald" secondAttribute="centerX" id="2V3-Ht-JUI"/>
+                                                <constraint firstItem="CBe-hq-ald" firstAttribute="centerX" secondItem="IXU-rY-YaX" secondAttribute="centerX" id="3nn-tv-Gp9"/>
+                                                <constraint firstItem="L5a-cE-TUf" firstAttribute="top" secondItem="CBe-hq-ald" secondAttribute="bottom" constant="2" id="BRO-Fq-14C"/>
+                                                <constraint firstItem="jZi-AX-uEg" firstAttribute="centerY" secondItem="IXU-rY-YaX" secondAttribute="centerY" id="d4U-lR-0GB"/>
+                                                <constraint firstItem="CBe-hq-ald" firstAttribute="centerY" secondItem="IXU-rY-YaX" secondAttribute="centerY" id="nsE-o9-c2k"/>
+                                                <constraint firstItem="jZi-AX-uEg" firstAttribute="centerX" secondItem="IXU-rY-YaX" secondAttribute="centerX" id="pSp-gR-e5G"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="70" height="70"/>
+                                        <connections>
+                                            <outlet property="gridName" destination="L5a-cE-TUf" id="KI3-ua-417"/>
+                                            <outlet property="gridView" destination="CBe-hq-ald" id="YUa-bZ-Evf"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="cTQ-vM-j1e" id="JlH-Et-qhO"/>
+                                    <outlet property="delegate" destination="cTQ-vM-j1e" id="MVm-9Y-Zxd"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="0Ay-EL-CGG"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="UwF-2h-l4J" firstAttribute="top" secondItem="0Ay-EL-CGG" secondAttribute="top" constant="5" id="DoO-ZI-JhA"/>
+                            <constraint firstItem="2vx-75-wrW" firstAttribute="trailing" secondItem="0Ay-EL-CGG" secondAttribute="trailing" id="FhT-FU-tUD"/>
+                            <constraint firstItem="2vx-75-wrW" firstAttribute="leading" secondItem="0Ay-EL-CGG" secondAttribute="leading" id="OYw-qT-meH"/>
+                            <constraint firstItem="UwF-2h-l4J" firstAttribute="leading" secondItem="0Ay-EL-CGG" secondAttribute="leading" constant="8" id="Tca-bh-jvc"/>
+                            <constraint firstItem="0Ay-EL-CGG" firstAttribute="trailing" secondItem="UwF-2h-l4J" secondAttribute="trailing" constant="8" id="W3Z-xV-Ma8"/>
+                            <constraint firstItem="2vx-75-wrW" firstAttribute="top" secondItem="UwF-2h-l4J" secondAttribute="bottom" id="g9H-dV-5F3"/>
+                            <constraint firstItem="2vx-75-wrW" firstAttribute="bottom" secondItem="0Ay-EL-CGG" secondAttribute="bottom" id="lNq-Nv-as1"/>
+                        </constraints>
+                    </view>
+                    <size key="freeformSize" width="320" height="120"/>
+                    <connections>
+                        <outlet property="collectionView" destination="2vx-75-wrW" id="ryK-c1-lpQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Q2-QE-2wp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3469" y="1066"/>
         </scene>
     </scenes>
     <resources>

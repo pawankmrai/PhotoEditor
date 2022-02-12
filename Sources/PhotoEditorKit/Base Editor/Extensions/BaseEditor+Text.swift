@@ -13,22 +13,11 @@ import PhotoEditorUI
 extension BaseEditorViewController: TextLayerBackground {
     //
     func layerBackgroundColor(with button: UIButton) {
-        let colorPickerViewController = AppColorPickerViewController()
-        colorPickerViewController.colorPickerDelegate = self
-        colorPickerViewController.modalPresentationStyle = .popover
-        colorPickerViewController.preferredContentSize = CGSize(width: UIScreen.main.bounds.width / 0.6,
-                                                                height: UIScreen.main.bounds.height / 0.6)
-        if let popoverController = colorPickerViewController.popoverPresentationController {
-            popoverController.sourceView = button
-            popoverController.permittedArrowDirections = .any
-            popoverController.delegate = self
-            //colorPickerViewController.delegate = self
-        }
-        present(colorPickerViewController, animated: true, completion: nil)
+        openColorPicker(from: button)
     }
     
     func layerBackgroundOpacity() {
-        performSegue(withIdentifier: SegueType.slider.rawValue, sender: ControlType.opacity)
+        openOpacity()
     }
     
     //
@@ -58,10 +47,17 @@ extension BaseEditorViewController: ColorPickerDelegate {
 
 extension BaseEditorViewController: TextShadow {
     //
-    func shadow(color: UIColor) {
+    func opacity() {
+        openOpacity()
+    }
+    //
+    func shadow(value: Float) {
+        
     }
     
-    func shadow(opacity: Double) {
+    //
+    func color(with button: UIButton) {
+        openColorPicker(from: button)
     }
     
 }
@@ -94,6 +90,7 @@ extension BaseEditorViewController: TextColor {
 extension BaseEditorViewController: TextFade {
     //
     func fade(value: Double) {
+        
     }
     
 }
@@ -103,6 +100,33 @@ extension BaseEditorViewController: TextFade {
 extension BaseEditorViewController: TextLayerRotate {
     //
     func layerRotate(angle: Int) {
+        
     }
     
+}
+
+
+// MARK:- Image Picker & Opacity Picker
+
+extension BaseEditorViewController {
+    //
+    func openColorPicker(from button: UIButton) {
+        //
+        let colorPickerViewController = AppColorPickerViewController()
+        colorPickerViewController.colorPickerDelegate = self
+        colorPickerViewController.modalPresentationStyle = .popover
+        colorPickerViewController.preferredContentSize = CGSize(width: UIScreen.main.bounds.width / 0.6,
+                                                                height: UIScreen.main.bounds.height / 0.6)
+        if let popoverController = colorPickerViewController.popoverPresentationController {
+            popoverController.sourceView = button
+            popoverController.permittedArrowDirections = .any
+            popoverController.delegate = self
+            //colorPickerViewController.delegate = self
+        }
+        present(colorPickerViewController, animated: true, completion: nil)
+    }
+    
+    func openOpacity(from: UIButton? = nil) {
+        performSegue(withIdentifier: SegueType.slider.rawValue, sender: ControlType.opacity)
+    }
 }

@@ -51,3 +51,10 @@ extension BaseEditorViewController: CollageShape {
     }
     
 }
+
+extension BaseEditorViewController: GridShape {
+    //
+    func create(grid shape: Grid) {
+        
+    }
+}

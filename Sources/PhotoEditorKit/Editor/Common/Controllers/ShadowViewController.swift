@@ -36,6 +36,8 @@ class ShadowViewController: UIViewController {
         horizontalSlider.value = 0.5
     }
     
+    // MARK:- User Actions
+    
     /// Slider change event
     /// - Parameter sender: UISlider
     @IBAction func sliderChanged(_ sender: UISlider) {
@@ -47,8 +49,21 @@ class ShadowViewController: UIViewController {
         horizontalSliderValueLabel.text = formatter.string(from: number)
         
         //
-        // textShadowDelegate?.shadow(opacity: <#T##Double#>)
+        textShadowDelegate?.shadow(value: horizontalSlider.value)
     }
+    
+    /// Open color picker
+    /// - Parameter sender: button
+    @IBAction func colorPicker(_ sender: UIButton) {
+        textShadowDelegate?.color(with: sender)
+    }
+    
+    /// Open opacity slider
+    /// - Parameter sender: button
+    @IBAction func opacity(_ sender: UIButton) {
+        textShadowDelegate?.opacity()
+    }
+    
     // MARK:- Cancel and Done Actions
     
     @IBAction func cancelTapped(_ sender: Any) {

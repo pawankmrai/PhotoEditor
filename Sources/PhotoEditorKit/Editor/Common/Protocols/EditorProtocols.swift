@@ -28,6 +28,10 @@ protocol CollageShape {
     func create(collage shape: Collage)
 }
 
+protocol GridShape {
+    func create(grid shape: Grid)
+}
+
 // MARK:- Text Editor Protocols
 
 protocol TextLayerBackground {
@@ -37,8 +41,9 @@ protocol TextLayerBackground {
 }
 
 protocol TextShadow {
-    func shadow(color: UIColor)
-    func shadow(opacity: Double)
+    func color(with button: UIButton)
+    func opacity()
+    func shadow(value: Float)
 }
 
 protocol TextFont {
